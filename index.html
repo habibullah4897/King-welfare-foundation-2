@@ -194,7 +194,12 @@ campaigns.forEach((campaign,index)=>{
  document.getElementById("percent"+index).textContent=percentage.toFixed(1).replace(".0","")+"%";
  document.getElementById("bar"+index).style.width=percentage+"%";
 });
-
+<section id="posts">
+<h2>📰 Latest News & Updates</h2>
+<div id="firebasePosts">
+<p>Loading latest updates...</p>
+</div>
+</section>
 function copyText(id){
  const value=document.getElementById(id).textContent.trim();
  if(navigator.clipboard && window.isSecureContext){
@@ -207,5 +212,76 @@ function copyText(id){
 }
 </script>
 
+<script type="module">
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+ getFirestore,
+ collection,
+ query,
+ where,
+ getDocs
+} from
+"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+// اپنی Firebase Configuration یہاں ڈالیں
+const firebaseConfig = {
+ apiKey: "YOUR_API_KEY",
+ authDomain: "YOUR_PROJECT.firebaseapp.com",
+ projectId: "YOUR_PROJECT_ID",
+ storageBucket: "YOUR_PROJECT.appspot.com",
+ messagingSenderId: "YOUR_SENDER_ID",
+ appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function loadPosts() {
+ const container = document.getElementById("firebasePosts");
+
+ try {
+  const q = query(
+   collection(db, "posts"),
+   where("status", "==", "published")
+  );
+
+  const snapshot = await getDocs(q);
+  container.innerHTML = "";
+
+  if (snapshot.empty) {
+   container.textContent = "No published updates yet.";
+   return;
+  }
+
+  snapshot.forEach((doc) => {
+   const post = doc.data();
+
+   const card = document.createElement("div");
+   card.style.cssText =
+   "background:#f0f7f1;padding:18px;margin:15px 0;border-radius:12px;border-left:4px solid #087044";
+
+   const heading = document.createElement("h3");
+   heading.textContent = post.title || "Foundation Update";
+
+   const content = document.createElement("p");
+   content.textContent = post.content || "";
+
+   card.appendChild(heading);
+   card.appendChild(content);
+   container.appendChild(card);
+  });
+
+ } catch (error) {
+  console.error("Firebase error:", error);
+  container.textContent =
+   "Updates are temporarily unavailable. Please check again later.";
+ }
+}
+
+loadPosts();
+</script>
+ 
 </body>
                                               </html>
