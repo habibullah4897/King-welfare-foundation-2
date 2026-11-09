@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 body{margin:0;font-family:Arial,sans-serif;background:#f5f8f5;color:#26352b;line-height:1.7}
 header{background:#075b36;color:white;text-align:center;padding:35px 15px}
 header h1{margin:0;font-size:29px}
-nav{background:#06472c;text-align:center;padding:12px;position:sticky;top:0}
+nav{background:#06472c;text-align:center;padding:12px;position:sticky;top:0;z-index:10}
 nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
 main{max-width:950px;margin:auto;padding:18px}
 section{background:white;margin:20px 0;padding:23px;border-radius:13px;box-shadow:0 2px 10px #0000000d}
@@ -24,7 +25,12 @@ button{background:#087044;color:white;border:0;padding:10px 15px;border-radius:7
 a{color:#087044}
 footer{background:#06472c;color:white;text-align:center;padding:25px 15px}
 .small{font-size:13px;color:#66736a}
-@media(max-width:600px){header h1{font-size:23px}nav a{display:inline-block;margin:4px;font-size:12px}section{padding:16px}}
+.post-date{font-size:12px;color:#66736a}
+@media(max-width:600px){
+header h1{font-size:23px}
+nav a{display:inline-block;margin:4px;font-size:12px}
+section{padding:16px}
+}
 </style>
 </head>
 <body>
@@ -38,6 +44,7 @@ footer{background:#06472c;color:white;text-align:center;padding:25px 15px}
 <nav>
 <a href="#about">About</a>
 <a href="#campaigns">Campaigns</a>
+<a href="#posts">Updates</a>
 <a href="#transparency">Transparency</a>
 <a href="#donate">Donate</a>
 <a href="#contact">Contact</a>
@@ -54,6 +61,7 @@ footer{background:#06472c;color:white;text-align:center;padding:25px 15px}
 <p>I witness their difficulties every day. I sincerely wish to help them, but unfortunately, I do not have sufficient financial resources to support all these deserving people.</p>
 <p>However, I believe that Allah has blessed this world with many kind-hearted people who are willing to become a source of hope for those in need.</p>
 <p>With this hope, I am reaching out to you today.</p>
+
 <h3>Our Humble Request for Financial Support</h3>
 <p>We respectfully request your initial financial support to help King Welfare Foundation begin its humanitarian activities.</p>
 <p>With your generous contributions, we aim to:</p>
@@ -108,6 +116,14 @@ footer{background:#06472c;color:white;text-align:center;padding:25px 15px}
 <p>All campaigns will initially show US$0 received and 0% progress. We will update the figures manually after donations have actually been received and verified. These progress figures are not connected automatically to any bank or cryptocurrency account.</p>
 </section>
 
+<!-- FIREBASE POSTS -->
+<section id="posts">
+<h2>📰 Latest News & Updates</h2>
+<div id="firebasePosts">
+<p>Loading latest updates...</p>
+</div>
+</section>
+
 <section id="transparency">
 <h2>Transparency, Receipts and Proof of Donations</h2>
 <p>We are committed to transparency and responsible use of every donation.</p>
@@ -155,7 +171,7 @@ footer{background:#06472c;color:white;text-align:center;padding:25px 15px}
 
 <section id="contact">
 <h2>Contact Us</h2>
-<p><b>Email: <a href="mailto:kingwelfarefoundation@gmail.com">kingwelfarefoundation@gmail.com</a>
+<p><b>Email:</b> <a href="mailto:kingwelfarefoundation@gmail.com">kingwelfarefoundation@gmail.com</a></p>
 <p><b>Official WhatsApp Channel:</b></p>
 <p><a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">Follow our WhatsApp Channel</a></p>
 <p><b>Website / Project Page:</b></p>
@@ -181,7 +197,6 @@ footer{background:#06472c;color:white;text-align:center;padding:25px 15px}
 </footer>
 
 <script>
-// Change these amounts only after donations are received and verified.
 const campaigns = [
  {target:1000, received:0},
  {target:800, received:0},
@@ -194,86 +209,18 @@ campaigns.forEach((campaign,index)=>{
  document.getElementById("percent"+index).textContent=percentage.toFixed(1).replace(".0","")+"%";
  document.getElementById("bar"+index).style.width=percentage+"%";
 });
-<section id="posts">
-<h2>📰 Latest News & Updates</h2>
-<div id="firebasePosts">
-<p>Loading latest updates...</p>
-</div>
-</section>
+
 function copyText(id){
  const value=document.getElementById(id).textContent.trim();
  if(navigator.clipboard && window.isSecureContext){
   navigator.clipboard.writeText(value)
    .then(()=>alert("Copied successfully!"))
    .catch(()=>alert("Please copy manually: "+value));
- }else{
+ } else {
   alert("Please copy manually: "+value);
  }
 }
 </script>
-
-<script type="module">
-import { initializeApp } from
-"https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
-import {
- getFirestore,
- collection,
- query,
- where,
- getDocs
-} from
-"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-// اپنی Firebase Configuration یہاں ڈالیں
-const firebaseConfig = {
- apiKey: "YOUR_API_KEY",
- authDomain: "YOUR_PROJECT.firebaseapp.com",
- projectId: "YOUR_PROJECT_ID",
- storageBucket: "YOUR_PROJECT.appspot.com",
- messagingSenderId: "YOUR_SENDER_ID",
- appId: "YOUR_APP_ID"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-async function loadPosts() {
- const container = document.getElementById("firebasePosts");
-
- try {
-  const q = query(
-   collection(db, "posts"),
-   where("status", "==", "published")
-  );
-
-  const snapshot = await getDocs(q);
-  container.innerHTML = "";
-
-  if (snapshot.empty) {
-   container.textContent = "No published updates yet.";
-   return;
-  }
-
-  snapshot.forEach((doc) => {
-   const post = doc.data();
-
-   const card = document.createElement("div");
-   card.style.cssText =
-   "background:#f0f7f1;padding:18px;margin:15px 0;border-radius:12px;border-left:4px solid #087044";
-
-   const heading = document.createElement("h3");
-   heading.textContent = post.title || "Foundation Update";
-
-   const content = document.createElement("p");
-   content.textContent = post.content || "";
-
-   card.appendChild(heading);
-   card.appendChild(content);
-   container.appendChild(card);
-  });
-
- 
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
@@ -283,9 +230,11 @@ import {
  collection,
  query,
  where,
- getDocs
+ getDocs,
+ orderBy
 } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
 
+// Firebase Web App Configuration
 const firebaseConfig = {
  apiKey: "AIzaSyCYE3on4eXbBL1Glyiu78ei7vFQ-_uTL04",
  authDomain: "kingwellfairfoundation2.firebaseapp.com",
@@ -299,42 +248,42 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function loadPosts() {
- const container = document.getElementById("firebasePosts");
+async function loadPosts(){
+ const container=document.getElementById("firebasePosts");
 
- try {
-  const q = query(
-   collection(db, "posts"),
-   where("status", "==", "published")
+ try{
+  const q=query(
+   collection(db,"posts"),
+   where("status","==","Published")
   );
 
-  const snapshot = await getDocs(q);
-  container.innerHTML = "";
+  const snapshot=await getDocs(q);
+  container.innerHTML="";
 
-  if (snapshot.empty) {
-   container.textContent = "No updates available yet.";
+  if(snapshot.empty){
+   container.textContent="No published updates yet.";
    return;
   }
 
-  snapshot.forEach((doc) => {
-   const post = doc.data();
+  snapshot.forEach((doc)=>{
+   const post=doc.data();
 
-   const card = document.createElement("div");
-   card.className = "campaign";
+   const card=document.createElement("div");
+   card.className="campaign";
 
-   const heading = document.createElement("h3");
-   heading.textContent = post.title || "Foundation Update";
+   const heading=document.createElement("h3");
+   heading.textContent=post.title || "Foundation Update";
 
-   const content = document.createElement("p");
-   content.textContent = post.content || "";
+   const content=document.createElement("p");
+   content.textContent=post.content || "";
 
-   card.append(heading, content);
+   card.append(heading,content);
    container.appendChild(card);
   });
 
- } catch (error) {
-  console.error(error);
-  container.textContent = "Unable to load updates. Please try again later.";
+ }catch(error){
+  console.error("Firebase error:",error);
+  container.textContent="Unable to load updates. Please try again later.";
  }
 }
 
@@ -342,4 +291,5 @@ loadPosts();
 </script>
 
 </body>
-                                              </html>
+ </html>
+ 
