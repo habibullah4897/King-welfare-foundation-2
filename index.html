@@ -10,123 +10,211 @@
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
  margin:0;
  font-family:Arial,sans-serif;
- background:#f5f8f5;
- color:#26352b;
+ background:#ffffff;
+ color:#263238;
  line-height:1.7;
 }
+
 header{
- background:#075b36;
+ background:#172554;
  color:white;
  text-align:center;
  padding:35px 15px;
+ border-bottom:5px solid #d4a017;
 }
+
 header h1{margin:0;font-size:29px}
+header p{margin:8px}
+
 nav{
- background:#06472c;
+ background:#171717;
  text-align:center;
  padding:12px;
  position:sticky;
  top:0;
  z-index:10;
 }
+
 nav a{
  color:white;
  text-decoration:none;
  margin:0 9px;
  font-size:14px;
  display:inline-block;
+ padding:5px;
 }
+
+nav a:hover{color:#ffd700}
+
+nav a[href="#donate"]{
+ background:#d4a017;
+ color:#171717;
+ padding:7px 13px;
+ border-radius:6px;
+ font-weight:bold;
+}
+
 main{
  max-width:950px;
  margin:auto;
  padding:18px;
 }
+
 section{
  background:white;
  margin:20px 0;
  padding:23px;
  border-radius:13px;
- box-shadow:0 2px 10px #0000000d;
+ box-shadow:0 2px 10px #00000012;
+ border:1px solid #eeeeee;
  scroll-margin-top:65px;
 }
+
 h2{
- color:#087044;
- border-bottom:2px solid #e5eee7;
+ color:#c62828;
+ border-bottom:2px solid #eeeeee;
  padding-bottom:8px;
 }
-h3{color:#087044}
+
+h3{color:#3949ab}
+
+/* DIFFERENT SECTION COLORS */
+
+#about h2{color:#c62828}
+#campaigns h2{color:#6a1b9a}
+#campaigns h3{color:#1565c0}
+#posts h2{color:#00838f}
+#transparency h2{color:#00897b}
+#donate h2{color:#ad1457}
+#contact h2{color:#2e7d32}
+
+section:nth-of-type(6) h2{color:#ef6c00}
+section:nth-of-type(7) h2{color:#4527a0}
+
 .campaign{
- border:1px solid #dce9df;
+ border:1px solid #ddd;
  padding:17px;
  border-radius:12px;
  margin:18px 0;
+ background:#fafafa;
 }
+
+.campaign:nth-of-type(1){
+ border-left:6px solid #1565c0;
+}
+.campaign:nth-of-type(2){
+ border-left:6px solid #ef6c00;
+}
+.campaign:nth-of-type(3){
+ border-left:6px solid #8e24aa;
+}
+
+.campaign:nth-of-type(1) h3{color:#1565c0}
+.campaign:nth-of-type(2) h3{color:#ef6c00}
+.campaign:nth-of-type(3) h3{color:#8e24aa}
+
 .progress{
  height:17px;
  background:#e5e5e5;
  border-radius:20px;
  overflow:hidden;
 }
+
 .bar{
  height:100%;
- background:#07834c;
+ background:#8e24aa;
  width:0%;
  transition:width .5s;
 }
+
 .amount{
  font-weight:bold;
- color:#087044;
+ color:#1565c0;
 }
+
+/* COPY BUTTONS RED */
+
 button{
- background:#087044;
+ background:#d32f2f;
  color:white;
  border:0;
  padding:10px 15px;
  border-radius:7px;
  cursor:pointer;
  margin:5px;
+ font-weight:bold;
 }
-button:hover{background:#06472c}
+
+button:hover{background:#a31515}
+
+/* DONATE BUTTON GOLD */
+
+.donate-button{
+ display:inline-block;
+ background:#d4a017;
+ color:#171717;
+ text-decoration:none;
+ padding:12px 23px;
+ border-radius:8px;
+ font-weight:bold;
+ margin:10px 0;
+}
+
+.donate-button:hover{
+ background:#f1c40f;
+}
+
 .copybox{
- background:#f0f6f1;
+ background:#fff5f5;
  padding:12px;
  border-radius:8px;
  overflow-wrap:anywhere;
+ border:1px solid #ffcdd2;
 }
-a{color:#087044}
+
+a{color:#1565c0}
+
 footer{
- background:#06472c;
+ background:#172554;
  color:white;
  text-align:center;
  padding:25px 15px;
+ border-top:5px solid #d4a017;
 }
+
 .small{
  font-size:13px;
- color:#66736a;
+ color:#667085;
 }
+
 .post-date{
  font-size:12px;
- color:#66736a;
+ color:#667085;
  margin-top:0;
 }
+
 .loading{
  text-align:center;
  padding:20px;
- color:#087044;
+ color:#00838f;
 }
+
 .post-card{
- background:white;
- border:1px solid #dce9df;
+ background:#f0fafa;
+ border:1px solid #b2dfdb;
  padding:17px;
  border-radius:12px;
  margin:18px 0;
 }
-.post-card h3{margin-top:0}
-.error{color:#a32929}
-.success{color:#087044}
+
+.post-card h3{color:#00838f;margin-top:0}
+.error{color:#c62828}
+.success{color:#2e7d32}
+
 @media(max-width:600px){
  header h1{font-size:23px}
  nav a{margin:4px;font-size:12px}
@@ -164,6 +252,7 @@ footer{
 <p>I witness their difficulties every day. I sincerely wish to help them, but unfortunately, I do not have sufficient financial resources to support all these deserving people.</p>
 <p>However, I believe that Allah has blessed this world with many kind-hearted people who are willing to become a source of hope for those in need.</p>
 <p>With this hope, I am reaching out to you today.</p>
+
 <h3>Our Humble Request for Financial Support</h3>
 <p>We respectfully request your initial financial support to help King Welfare Foundation begin its humanitarian activities.</p>
 <p>With your generous contributions, we aim to:</p>
@@ -242,14 +331,18 @@ footer{
 <p><b>Foundation Name:</b> KING WELFARE FOUNDATION</p>
 <p><b>Founder:</b> Habib Ullah</p>
 
+<a href="#contact" class="donate-button">❤️ DONATE NOW</a>
+
 <h3>1. Bank Account for Donations</h3>
 <p><b>Bank:</b> Meezan Bank</p>
 <p><b>Account Holder:</b> Habib Ullah</p>
 <p><b>IBAN:</b></p>
+
 <div class="copybox">
 <span id="iban">PK61MEZN0090010107506561</span>
 <button onclick="copyText('iban')">Copy IBAN</button>
 </div>
+
 <p class="small">Important Note: This is currently the founder's personal bank account, not an officially registered foundation bank account. After completing the legal registration process, we intend to open a dedicated bank account in the foundation's name.</p>
 
 <h3>2. Binance USDT Wallet for Donations</h3>
@@ -257,10 +350,12 @@ footer{
 <p><b>Cryptocurrency:</b> USDT (Tether)</p>
 <p><b>Network:</b> TRON (TRC20)</p>
 <p><b>USDT Wallet Address:</b></p>
+
 <div class="copybox">
 <span id="wallet">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</span>
 <button onclick="copyText('wallet')">Copy USDT Address</button>
 </div>
+
 <p class="small">Important Note: Verify the wallet address and TRC20 network directly in Binance before accepting any cryptocurrency donations. Applicable legal requirements and platform permissions must also be checked.</p>
 </section>
 
