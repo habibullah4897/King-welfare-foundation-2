@@ -1,147 +1,211 @@
-❤️ KING WELFARE FOUNDATION
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>King Welfare Foundation</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f8f5;color:#26352b;line-height:1.7}
+header{background:#075b36;color:white;text-align:center;padding:35px 15px}
+header h1{margin:0;font-size:29px}
+nav{background:#06472c;text-align:center;padding:12px;position:sticky;top:0}
+nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
+main{max-width:950px;margin:auto;padding:18px}
+section{background:white;margin:20px 0;padding:23px;border-radius:13px;box-shadow:0 2px 10px #0000000d}
+h2{color:#087044;border-bottom:2px solid #e5eee7;padding-bottom:8px}
+h3{color:#087044}
+.campaign{border:1px solid #dce9df;padding:17px;border-radius:12px;margin:18px 0}
+.progress{height:17px;background:#e5e5e5;border-radius:20px;overflow:hidden}
+.bar{height:100%;background:#07834c;width:0%;transition:width .5s}
+.amount{font-weight:bold;color:#087044}
+button{background:#087044;color:white;border:0;padding:10px 15px;border-radius:7px;cursor:pointer;margin:5px}
+.copybox{background:#f0f6f1;padding:12px;border-radius:8px;overflow-wrap:anywhere}
+a{color:#087044}
+footer{background:#06472c;color:white;text-align:center;padding:25px 15px}
+.small{font-size:13px;color:#66736a}
+@media(max-width:600px){header h1{font-size:23px}nav a{display:inline-block;margin:4px;font-size:12px}section{padding:16px}}
+</style>
+</head>
+<body>
 
-Humanity First – Our Mission Is to Serve Humanity
+<header>
+<h1>❤️ KING WELFARE FOUNDATION</h1>
+<p><b>Humanity First – Our Mission Is to Serve Humanity</b></p>
+<p>Loralai, Balochistan, Pakistan</p>
+</header>
 
-A Humble Appeal for Financial Support and Foundation Registration
+<nav>
+<a href="#about">About</a>
+<a href="#campaigns">Campaigns</a>
+<a href="#transparency">Transparency</a>
+<a href="#donate">Donate</a>
+<a href="#contact">Contact</a>
+</nav>
 
-Assalamu Alaikum wa Rahmatullahi wa Barakatuh,
+<main>
 
-Dear Philanthropists, Brothers, Sisters, and Organizations Dedicated to Humanity,
+<section id="about">
+<h2>A Humble Appeal for Financial Support and Foundation Registration</h2>
+<p>Assalamu Alaikum wa Rahmatullahi wa Barakatuh,</p>
+<p>Dear Philanthropists, Brothers, Sisters, and Organizations Dedicated to Humanity,</p>
+<p>My name is <b>Habib Ullah</b>, and I am the Founder of King Welfare Foundation in Pakistan.</p>
+<p>There are many poor families, orphaned children, widows, and persons with disabilities in my area who are struggling to meet their basic needs.</p>
+<p>I witness their difficulties every day. I sincerely wish to help them, but unfortunately, I do not have sufficient financial resources to support all these deserving people.</p>
+<p>However, I believe that Allah has blessed this world with many kind-hearted people who are willing to become a source of hope for those in need.</p>
+<p>With this hope, I am reaching out to you today.</p>
+<h3>Our Humble Request for Financial Support</h3>
+<p>We respectfully request your initial financial support to help King Welfare Foundation begin its humanitarian activities.</p>
+<p>With your generous contributions, we aim to:</p>
+<ol>
+<li>Provide food packages and essential groceries to poor and deserving families.</li>
+<li>Support orphaned children and helpless families.</li>
+<li>Provide financial and essential assistance to persons with disabilities.</li>
+<li>Help individuals and families suffering from extreme poverty.</li>
+</ol>
+<p>As soon as we receive funding, we intend to distribute food packages among deserving families in a fair and transparent manner.</p>
+</section>
 
-My name is Habib Ullah, and I am the Founder of King Welfare Foundation in Pakistan.
+<section id="campaigns">
+<h2>Our Donation Campaigns and Targets</h2>
+<p>We have planned three separate 30-day fundraising campaigns:</p>
 
-There are many poor families, orphaned children, widows, and persons with disabilities in my area who are struggling to meet their basic needs.
+<div class="campaign">
+<h3>❤️ Support for Orphan Children</h3>
+<p>Fundraising target: <b>US$1,000</b></p>
+<p>Campaign duration: 30 days</p>
+<p>Received: <span class="amount" id="received0">$0</span></p>
+<p>Progress: <span class="amount" id="percent0">0%</span></p>
+<div class="progress"><div class="bar" id="bar0"></div></div>
+</div>
 
-I witness their difficulties every day. I sincerely wish to help them, but unfortunately, I do not have sufficient financial resources to support all these deserving people.
+<div class="campaign">
+<h3>🍲 Monthly Ration for Poor Families</h3>
+<p>Fundraising target: <b>US$800</b></p>
+<p>Campaign duration: 30 days</p>
+<p>Received: <span class="amount" id="received1">$0</span></p>
+<p>Progress: <span class="amount" id="percent1">0%</span></p>
+<div class="progress"><div class="bar" id="bar1"></div></div>
+</div>
 
-However, I believe that Allah has blessed this world with many kind-hearted people who are willing to become a source of hope for those in need.
+<div class="campaign">
+<h3>♿ Support for Persons with Disabilities</h3>
+<p>Fundraising target: <b>US$750</b></p>
+<p>Campaign duration: 30 days</p>
+<p>Received: <span class="amount" id="received2">$0</span></p>
+<p>Progress: <span class="amount" id="percent2">0%</span></p>
+<div class="progress"><div class="bar" id="bar2"></div></div>
+</div>
 
-With this hope, I am reaching out to you today.
+<h3>Total Fundraising Target: US$2,550</h3>
+<h3>Donation Progress and Percentage</h3>
+<p>The progress percentage of each campaign will be calculated separately according to its own fundraising target.</p>
+<ul>
+<li>US$500 received for orphan children = 50% progress.</li>
+<li>US$400 received for poor families' ration = 50% progress.</li>
+<li>US$375 received for persons with disabilities = 50% progress.</li>
+</ul>
+<p>All campaigns will initially show US$0 received and 0% progress. We will update the figures manually after donations have actually been received and verified. These progress figures are not connected automatically to any bank or cryptocurrency account.</p>
+</section>
 
-Our Humble Request for Financial Support
+<section id="transparency">
+<h2>Transparency, Receipts and Proof of Donations</h2>
+<p>We are committed to transparency and responsible use of every donation.</p>
+<p>For every donation received, we will make the available receipt, payment confirmation or other verifiable proof of receipt and expenditure available through our official WhatsApp Channel.</p>
+<p>We will regularly share updates about donations received, funds spent and welfare activities carried out.</p>
+<p>We will also share pictures and videos of our charitable activities where appropriate, while respecting the dignity, privacy and consent of the people receiving assistance.</p>
+<p>Our goal is to make sure that every donor can follow how their contribution is being used.</p>
+</section>
 
-We respectfully request your initial financial support to help King Welfare Foundation begin its humanitarian activities.
+<section>
+<h2>Special Appeal for Foundation Registration</h2>
+<p>At present, King Welfare Foundation is not officially registered because I do not have sufficient financial resources to cover the registration expenses.</p>
+<p>I have been informed that the initial registration expenses may be approximately US$357. The actual government fees will be verified before making any payment.</p>
+<p>My dream is to legally register King Welfare Foundation and dedicate my future to serving humanity, Insha'Allah.</p>
+<p>My intention is not to use donations for personal purposes. I want every contribution to be responsibly spent on deserving people, with proper records of all funds received and expenses incurred.</p>
+<p>I sincerely request you to become one of the first supporters of this humanitarian mission.</p>
+</section>
 
-With your generous contributions, we aim to:
+<section id="donate">
+<h2>Official Contact and Donation Details</h2>
+<p><b>Foundation Name:</b> KING WELFARE FOUNDATION</p>
+<p><b>Founder:</b> Habib Ullah</p>
 
-1. Provide food packages and essential groceries to poor and deserving families.
-2. Support orphaned children and helpless families.
-3. Provide financial and essential assistance to persons with disabilities.
-4. Help individuals and families suffering from extreme poverty.
+<h3>1. Bank Account for Donations</h3>
+<p><b>Bank:</b> Meezan Bank</p>
+<p><b>Account Holder:</b> Habib Ullah</p>
+<p><b>IBAN:</b></p>
+<div class="copybox">
+<span id="iban">PK61MEZN0090010107506561</span>
+<button onclick="copyText('iban')">Copy IBAN</button>
+</div>
+<p class="small">Important Note: This is currently the founder's personal bank account, not an officially registered foundation bank account. After completing the legal registration process, we intend to open a dedicated bank account in the foundation's name.</p>
 
-As soon as we receive funding, we intend to distribute food packages among deserving families in a fair and transparent manner.
+<h3>2. Binance USDT Wallet for Donations</h3>
+<p><b>Platform:</b> Binance</p>
+<p><b>Cryptocurrency:</b> USDT (Tether)</p>
+<p><b>Network:</b> TRON (TRC20)</p>
+<p><b>USDT Wallet Address:</b></p>
+<div class="copybox">
+<span id="wallet">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</span>
+<button onclick="copyText('wallet')">Copy USDT Address</button>
+</div>
+<p class="small">Important Note: This wallet address has been provided for reference. Its accuracy and network compatibility must be verified directly in the Binance application before accepting any donations. Applicable legal requirements and platform permissions must also be checked.</p>
+</section>
 
-Our Donation Campaigns and Targets
+<section id="contact">
+<h2>Contact Us</h2>
+<p><b>Email:</b> <a href="mailto:Habibullah4897@gmail.com">Habibullah4897@gmail.com</a></p>
+<p><b>Official WhatsApp Channel:</b></p>
+<p><a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">Follow our WhatsApp Channel</a></p>
+<p><b>Website / Project Page:</b></p>
+<p><a href="https://github.com/habibullah4897/King-welfare-foundation-2" target="_blank">King Welfare Foundation Website Project</a></p>
+</section>
 
-We have planned three separate 30-day fundraising campaigns:
+<section>
+<h2>❤️ OUR MESSAGE</h2>
+<p>Let us work together to bring a smile to an orphan's face, provide food to a hungry family, and become a source of hope for those who have nowhere else to turn.</p>
+<p>Even a small contribution from you can bring great happiness into someone's life.</p>
+<p>May Allah reward everyone who contributes to serving humanity and grant us all the ability to help His creation. Ameen.</p>
+<p>With sincere prayers and gratitude,</p>
+<p><b>Habib Ullah</b><br>Founder – KING WELFARE FOUNDATION<br>Pakistan</p>
+<h3>HUMANITY FIRST – OUR MISSION IS TO SERVE HUMANITY. ❤️</h3>
+</section>
 
-1. ❤️ Support for Orphan Children
+</main>
 
-- Fundraising target: US$1,000
-- Campaign duration: 30 days
-- Initial progress: US$0 (0%)
+<footer>
+<p>© KING WELFARE FOUNDATION</p>
+<p>Humanity First – Our Mission Is to Serve Humanity</p>
+<p>This is currently an unregistered welfare initiative and is not a government organization or registered charity.</p>
+</footer>
 
-2. 🍲 Monthly Ration for Poor Families
+<script>
+// Change these amounts only after donations are received and verified.
+const campaigns = [
+ {target:1000, received:0},
+ {target:800, received:0},
+ {target:750, received:0}
+];
 
-- Fundraising target: US$800
-- Campaign duration: 30 days
-- Initial progress: US$0 (0%)
+campaigns.forEach((campaign,index)=>{
+ const percentage=Math.min(100,Math.max(0,campaign.received/campaign.target*100));
+ document.getElementById("received"+index).textContent="$"+campaign.received.toLocaleString("en-US");
+ document.getElementById("percent"+index).textContent=percentage.toFixed(1).replace(".0","")+"%";
+ document.getElementById("bar"+index).style.width=percentage+"%";
+});
 
-3. ♿ Support for Persons with Disabilities
+function copyText(id){
+ const value=document.getElementById(id).textContent.trim();
+ if(navigator.clipboard && window.isSecureContext){
+  navigator.clipboard.writeText(value)
+   .then(()=>alert("Copied successfully!"))
+   .catch(()=>alert("Please copy manually: "+value));
+ }else{
+  alert("Please copy manually: "+value);
+ }
+}
+</script>
 
-- Fundraising target: US$750
-- Campaign duration: 30 days
-- Initial progress: US$0 (0%)
-
-Total fundraising target: US$2,550
-
-Donation Progress and Percentage
-
-The progress percentage of each campaign will be calculated separately according to its own fundraising target.
-
-For example:
-
-- US$500 received for orphan children = 50% progress.
-- US$400 received for poor families' ration = 50% progress.
-- US$375 received for persons with disabilities = 50% progress.
-
-All campaigns will initially show US$0 received and 0% progress. We will update the figures manually after donations have actually been received and verified. These progress figures are not connected automatically to any bank or cryptocurrency account.
-
-Transparency, Receipts and Proof of Donations
-
-We are committed to transparency and responsible use of every donation.
-
-For every donation received, we will make the available receipt, payment confirmation or other verifiable proof of receipt and expenditure available through our official WhatsApp Channel.
-
-We will regularly share updates about donations received, funds spent and welfare activities carried out.
-
-We will also share pictures and videos of our charitable activities where appropriate, while respecting the dignity, privacy and consent of the people receiving assistance.
-
-Our goal is to make sure that every donor can follow how their contribution is being used.
-
-Special Appeal for Foundation Registration
-
-At present, King Welfare Foundation is not officially registered because I do not have sufficient financial resources to cover the registration expenses.
-
-I have been informed that the initial registration expenses may be approximately US$357. The actual government fees will be verified before making any payment.
-
-My dream is to legally register King Welfare Foundation and dedicate my future to serving humanity, Insha'Allah.
-
-My intention is not to use donations for personal purposes. I want every contribution to be responsibly spent on deserving people, with proper records of all funds received and expenses incurred.
-
-I sincerely request you to become one of the first supporters of this humanitarian mission.
-
-OFFICIAL CONTACT AND DONATION DETAILS
-
-Foundation Name: KING WELFARE FOUNDATION
-
-Founder: Habib Ullah
-
-Email:
-Habibullah4897@gmail.com
-
-Official WhatsApp Channel:
-https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G
-
-Website / Project Page:
-https://github.com/habibullah4897/King-welfare-foundation-2
-
-1. Bank Account for Donations
-
-Bank: Meezan Bank
-Account Holder: Habib Ullah
-
-IBAN:
-PK61MEZN0090010107506561
-
-Important Note: This is currently the founder's personal bank account, not an officially registered foundation bank account. After completing the legal registration process, we intend to open a dedicated bank account in the foundation's name.
-
-2. Binance USDT Wallet for Donations
-
-Platform: Binance
-Cryptocurrency: USDT (Tether)
-Network: TRON (TRC20)
-
-USDT Wallet Address:
-
-"TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF"
-
-Important Note: This wallet address has been provided for reference. Its accuracy and network compatibility must be verified directly in the Binance application before accepting any donations. Applicable legal requirements and platform permissions must also be checked.
-
----
-
-❤️ OUR MESSAGE
-
-Let us work together to bring a smile to an orphan's face, provide food to a hungry family, and become a source of hope for those who have nowhere else to turn.
-
-Even a small contribution from you can bring great happiness into someone's life.
-
-May Allah reward everyone who contributes to serving humanity and grant us all the ability to help His creation. Ameen.
-
-With sincere prayers and gratitude,
-
-Habib Ullah
-Founder – KING WELFARE FOUNDATION
-Pakistan
-
-HUMANITY FIRST – OUR MISSION IS TO SERVE HUMANITY. ❤️
+</body>
+                                              </html>
