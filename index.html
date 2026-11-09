@@ -1,225 +1,107 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="King Welfare Foundation - Humanity First. Supporting orphan children, poor families, widows and persons with disabilities in Loralai, Balochistan, Pakistan.">
+<meta name="description" content="King Welfare Foundation - Humanity First. Helping orphan children, poor families, widows and persons with disabilities in Loralai, Balochistan, Pakistan.">
 <title>King Welfare Foundation</title>
 
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#ffffff;
- color:#263238;
- line-height:1.7;
+font-family:Arial,sans-serif;
+line-height:1.7;
+color:#222;
+background:#f3f5f9;
 }
-
 header{
- background:#172554;
- color:white;
- text-align:center;
- padding:35px 15px;
- border-bottom:5px solid #d4a017;
+background:#102c54;
+color:white;
+text-align:center;
+padding:30px 15px;
 }
-
-header h1{margin:0;font-size:29px}
-header p{margin:8px}
-
+header h1{font-size:30px}
+header p{color:#ffd966;font-weight:bold}
 nav{
- background:#171717;
- text-align:center;
- padding:12px;
- position:sticky;
- top:0;
- z-index:10;
+background:#172b4d;
+padding:13px 5px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:10;
 }
-
 nav a{
- color:white;
- text-decoration:none;
- margin:0 9px;
- font-size:14px;
- display:inline-block;
- padding:5px;
+color:white;
+text-decoration:none;
+padding:8px;
+display:inline-block;
+font-size:14px;
+font-weight:bold;
 }
-
-nav a:hover{color:#ffd700}
-
-nav a[href="#donate"]{
- background:#d4a017;
- color:#171717;
- padding:7px 13px;
- border-radius:6px;
- font-weight:bold;
-}
-
-main{
- max-width:950px;
- margin:auto;
- padding:18px;
-}
-
+nav a:hover{color:#ffd966}
 section{
- background:white;
- margin:20px 0;
- padding:23px;
- border-radius:13px;
- box-shadow:0 2px 10px #00000012;
- border:1px solid #eeeeee;
- scroll-margin-top:65px;
+padding:35px 20px;
+margin:12px;
+border-radius:15px;
+box-shadow:0 3px 12px #00000012;
 }
-
-h2{
- color:#c62828;
- border-bottom:2px solid #eeeeee;
- padding-bottom:8px;
+section h2{
+text-align:center;
+margin-bottom:18px;
+font-size:25px;
 }
-
-h3{color:#3949ab}
-
-/* DIFFERENT SECTION COLORS */
-
-#about h2{color:#c62828}
-#campaigns h2{color:#6a1b9a}
-#campaigns h3{color:#1565c0}
-#posts h2{color:#00838f}
-#transparency h2{color:#00897b}
-#donate h2{color:#ad1457}
-#contact h2{color:#2e7d32}
-
-section:nth-of-type(6) h2{color:#ef6c00}
-section:nth-of-type(7) h2{color:#4527a0}
-
-.campaign{
- border:1px solid #ddd;
- padding:17px;
- border-radius:12px;
- margin:18px 0;
- background:#fafafa;
+.home{background:#dceeff}
+.about{background:#dcf5e6}
+.campaigns{background:#fff0c9}
+.updates{background:#eee3ff}
+.transparency{background:#ffe5d6}
+.donate{background:#d8f4e2}
+.contact{background:#ffe0ed}
+.container{
+max-width:900px;
+margin:auto;
 }
-
-.campaign:nth-of-type(1){
- border-left:6px solid #1565c0;
+p{margin:10px 0}
+.card{
+background:#ffffffd9;
+padding:18px;
+margin:12px 0;
+border-radius:12px;
 }
-.campaign:nth-of-type(2){
- border-left:6px solid #ef6c00;
+.btn{
+display:inline-block;
+padding:12px 22px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin:7px 4px;
+border:none;
+cursor:pointer;
 }
-.campaign:nth-of-type(3){
- border-left:6px solid #8e24aa;
+.donate-btn{background:#078b43;color:white}
+.whatsapp-btn{background:#128c7e;color:white}
+.copy-btn{background:#dc2626;color:white}
+.channel-btn{background:#2456a6;color:white}
+.center{text-align:center}
+.account{
+background:white;
+padding:15px;
+border-radius:10px;
+overflow-wrap:anywhere;
+margin:12px 0;
 }
-
-.campaign:nth-of-type(1) h3{color:#1565c0}
-.campaign:nth-of-type(2) h3{color:#ef6c00}
-.campaign:nth-of-type(3) h3{color:#8e24aa}
-
-.progress{
- height:17px;
- background:#e5e5e5;
- border-radius:20px;
- overflow:hidden;
-}
-
-.bar{
- height:100%;
- background:#8e24aa;
- width:0%;
- transition:width .5s;
-}
-
-.amount{
- font-weight:bold;
- color:#1565c0;
-}
-
-/* COPY BUTTONS RED */
-
-button{
- background:#d32f2f;
- color:white;
- border:0;
- padding:10px 15px;
- border-radius:7px;
- cursor:pointer;
- margin:5px;
- font-weight:bold;
-}
-
-button:hover{background:#a31515}
-
-/* DONATE BUTTON GOLD */
-
-.donate-button{
- display:inline-block;
- background:#d4a017;
- color:#171717;
- text-decoration:none;
- padding:12px 23px;
- border-radius:8px;
- font-weight:bold;
- margin:10px 0;
-}
-
-.donate-button:hover{
- background:#f1c40f;
-}
-
-.copybox{
- background:#fff5f5;
- padding:12px;
- border-radius:8px;
- overflow-wrap:anywhere;
- border:1px solid #ffcdd2;
-}
-
-a{color:#1565c0}
-
 footer{
- background:#172554;
- color:white;
- text-align:center;
- padding:25px 15px;
- border-top:5px solid #d4a017;
+background:#102c54;
+color:white;
+text-align:center;
+padding:25px 12px;
 }
-
-.small{
- font-size:13px;
- color:#667085;
-}
-
-.post-date{
- font-size:12px;
- color:#667085;
- margin-top:0;
-}
-
-.loading{
- text-align:center;
- padding:20px;
- color:#00838f;
-}
-
-.post-card{
- background:#f0fafa;
- border:1px solid #b2dfdb;
- padding:17px;
- border-radius:12px;
- margin:18px 0;
-}
-
-.post-card h3{color:#00838f;margin-top:0}
-.error{color:#c62828}
-.success{color:#2e7d32}
-
+footer a{color:#ffd966}
 @media(max-width:600px){
- header h1{font-size:23px}
- nav a{margin:4px;font-size:12px}
- section{padding:16px}
- button{max-width:100%}
+header h1{font-size:24px}
+nav a{font-size:12px;padding:6px}
+section{margin:8px;padding:25px 14px}
 }
 </style>
 </head>
@@ -227,293 +109,156 @@ footer{
 <body>
 
 <header>
-<h1>❤️ KING WELFARE FOUNDATION</h1>
-<p><b>Humanity First – Our Mission Is to Serve Humanity</b></p>
+<h1>👑 KING WELFARE FOUNDATION</h1>
+<p>HUMANITY FIRST – SERVING HUMANITY IS OUR MISSION</p>
 <p>Loralai, Balochistan, Pakistan</p>
 </header>
 
 <nav>
+<a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#campaigns">Campaigns</a>
-<a href="#posts">Updates</a>
+<a href="#updates">Updates</a>
 <a href="#transparency">Transparency</a>
 <a href="#donate">Donate</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<main>
-
-<section id="about">
-<h2>A Humble Appeal for Financial Support and Foundation Registration</h2>
-<p>Assalamu Alaikum wa Rahmatullahi wa Barakatuh,</p>
-<p>Dear Philanthropists, Brothers, Sisters, and Organizations Dedicated to Humanity,</p>
-<p>My name is <b>Habib Ullah</b>, and I am the Founder of King Welfare Foundation in Pakistan.</p>
-<p>There are many poor families, orphaned children, widows, and persons with disabilities in my area who are struggling to meet their basic needs.</p>
-<p>I witness their difficulties every day. I sincerely wish to help them, but unfortunately, I do not have sufficient financial resources to support all these deserving people.</p>
-<p>However, I believe that Allah has blessed this world with many kind-hearted people who are willing to become a source of hope for those in need.</p>
-<p>With this hope, I am reaching out to you today.</p>
-
-<h3>Our Humble Request for Financial Support</h3>
-<p>We respectfully request your initial financial support to help King Welfare Foundation begin its humanitarian activities.</p>
-<p>With your generous contributions, we aim to:</p>
-<ol>
-<li>Provide food packages and essential groceries to poor and deserving families.</li>
-<li>Support orphaned children and helpless families.</li>
-<li>Provide financial and essential assistance to persons with disabilities.</li>
-<li>Help individuals and families suffering from extreme poverty.</li>
-</ol>
-<p>As soon as we receive funding, we intend to distribute food packages among deserving families in a fair and transparent manner.</p>
-</section>
-
-<section id="campaigns">
-<h2>Our Donation Campaigns and Targets</h2>
-<p>We have planned three separate 30-day fundraising campaigns:</p>
-
-<div class="campaign">
-<h3>❤️ Support for Orphan Children</h3>
-<p>Fundraising target: <b>US$1,000</b></p>
-<p>Campaign duration: 30 days</p>
-<p>Received: <span class="amount" id="received0">$0</span></p>
-<p>Progress: <span class="amount" id="percent0">0%</span></p>
-<div class="progress"><div class="bar" id="bar0"></div></div>
-</div>
-
-<div class="campaign">
-<h3>🍲 Monthly Ration for Poor Families</h3>
-<p>Fundraising target: <b>US$800</b></p>
-<p>Campaign duration: 30 days</p>
-<p>Received: <span class="amount" id="received1">$0</span></p>
-<p>Progress: <span class="amount" id="percent1">0%</span></p>
-<div class="progress"><div class="bar" id="bar1"></div></div>
-</div>
-
-<div class="campaign">
-<h3>♿ Support for Persons with Disabilities</h3>
-<p>Fundraising target: <b>US$750</b></p>
-<p>Campaign duration: 30 days</p>
-<p>Received: <span class="amount" id="received2">$0</span></p>
-<p>Progress: <span class="amount" id="percent2">0%</span></p>
-<div class="progress"><div class="bar" id="bar2"></div></div>
-</div>
-
-<h3>Total Fundraising Target: US$2,550</h3>
-<p>All campaigns will initially show US$0 received and 0% progress. Figures will be updated manually after donations have actually been received and verified.</p>
-<p class="small">These progress figures are not connected automatically to any bank or cryptocurrency account.</p>
-</section>
-
-<section id="posts">
-<h2>📰 Latest News & Updates</h2>
-<div id="firebasePosts">
-<p class="loading">Loading latest updates...</p>
+<section class="home" id="home">
+<div class="container center">
+<h2>Welcome to King Welfare Foundation</h2>
+<h3>Humanity First ❤️</h3>
+<p>Our mission is to help orphan children, poor families, widows and persons with disabilities.</p>
+<p>We believe that serving humanity is one of the greatest acts of kindness.</p>
+<a class="btn donate-btn" href="#donate">Donate Now ❤️</a>
+<a class="btn whatsapp-btn" href="https://wa.me/923352253097">Contact on WhatsApp</a>
 </div>
 </section>
 
-<section id="transparency">
-<h2>Transparency, Receipts and Proof of Donations</h2>
-<p>We are committed to transparency and responsible use of every donation.</p>
-<p>For every donation received, we will make available receipts, payment confirmations or other verifiable proof of receipt and expenditure through our official WhatsApp Channel.</p>
-<p>We will regularly share updates about donations received, funds spent and welfare activities carried out.</p>
-<p>We will also share pictures and videos of our charitable activities where appropriate, while respecting the dignity, privacy and consent of the people receiving assistance.</p>
-<p>Our goal is to make sure that every donor can follow how their contribution is being used.</p>
-</section>
-
-<section>
-<h2>Special Appeal for Foundation Registration</h2>
-<p>At present, King Welfare Foundation is not officially registered because I do not have sufficient financial resources to cover the registration expenses.</p>
-<p>I have been informed that the initial registration expenses may be approximately US$357. The actual government fees will be verified before making any payment.</p>
-<p>My dream is to legally register King Welfare Foundation and dedicate my future to serving humanity, Insha'Allah.</p>
-<p>My intention is to use donations responsibly for deserving people, with proper records of all funds received and expenses incurred.</p>
-<p>I sincerely request you to become one of the first supporters of this humanitarian mission.</p>
-</section>
-
-<section id="donate">
-<h2>Official Contact and Donation Details</h2>
-<p><b>Foundation Name:</b> KING WELFARE FOUNDATION</p>
+<section class="about" id="about">
+<div class="container">
+<h2>About Our Foundation</h2>
+<div class="card">
 <p><b>Founder:</b> Habib Ullah</p>
+<p><b>Organization:</b> King Welfare Foundation</p>
+<p><b>Location:</b> Loralai, Balochistan, Pakistan</p>
+<p><b>Mission:</b> Humanity First – Serving Humanity.</p>
+<p>We aim to support orphan children, poor families, widows and persons with disabilities through food, education, healthcare and essential financial assistance.</p>
+<p><b>Important:</b> King Welfare Foundation is currently an unregistered welfare initiative. Registration is planned for the future.</p>
+</div>
+</div>
+</section>
 
-<a href="#contact" class="donate-button">❤️ DONATE NOW</a>
+<section class="campaigns" id="campaigns">
+<div class="container">
+<h2>Our Campaigns</h2>
+<div class="card">
+<h3>👶 Orphan Children Support</h3>
+<p>Helping orphan children with food, clothing and education.</p>
+</div>
+<div class="card">
+<h3>🍚 Food & Ration Support</h3>
+<p>Providing essential food and ration to deserving families.</p>
+</div>
+<div class="card">
+<h3>👩 Widow Support</h3>
+<p>Supporting widows and families facing financial difficulties.</p>
+</div>
+<div class="card">
+<h3>♿ Disability Support</h3>
+<p>Helping persons with disabilities with essential needs.</p>
+</div>
+<div class="card">
+<h3>🏥 Healthcare & Education</h3>
+<p>Working towards access to basic healthcare and education.</p>
+</div>
+</div>
+</section>
 
-<h3>1. Bank Account for Donations</h3>
-<p><b>Bank:</b> Meezan Bank</p>
-<p><b>Account Holder:</b> Habib Ullah</p>
+<section class="updates" id="updates">
+<div class="container">
+<h2>Latest Updates</h2>
+<div class="card center">
+<p>We will share foundation activities, campaign news and assistance updates here.</p>
+<p>Our aim is to keep supporters informed about our work.</p>
+<a class="btn channel-btn" href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">Follow WhatsApp Channel</a>
+</div>
+</div>
+</section>
+
+<section class="transparency" id="transparency">
+<div class="container">
+<h2>Transparency & Accountability</h2>
+<div class="card">
+<p>We believe in honesty, trust and transparency.</p>
+<ul>
+<li>Donations and expenses will be recorded.</li>
+<li>Updates and evidence of assistance will be shared where appropriate.</li>
+<li>Beneficiaries' dignity and privacy will always be respected.</li>
+<li>Donors can contact us for information about contributions.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="donate" id="donate">
+<div class="container">
+<h2>Support Our Mission ❤️</h2>
+<div class="card center">
+<p>Your contribution can help an orphan child, a widow or a family in need.</p>
+<p><b>For donation details, please contact us on WhatsApp first.</b></p>
+
+<a class="btn donate-btn" href="https://wa.me/923352253097?text=I%20want%20to%20support%20King%20Welfare%20Foundation" target="_blank">Donate Through WhatsApp</a>
+
+<h3>Bank Transfer Details</h3>
+<div class="account">
+<p><b>Account Title:</b> Habib Ullah</p>
 <p><b>IBAN:</b></p>
-
-<div class="copybox">
-<span id="iban">PK61MEZN0090010107506561</span>
-<button onclick="copyText('iban')">Copy IBAN</button>
+<p id="iban">PK61MEZN0090010107506561</p>
+<button class="btn copy-btn" onclick="copyIBAN()">Copy IBAN</button>
+<p id="copyMessage"></p>
 </div>
 
-<p class="small">Important Note: This is currently the founder's personal bank account, not an officially registered foundation bank account. After completing the legal registration process, we intend to open a dedicated bank account in the foundation's name.</p>
-
-<h3>2. Binance USDT Wallet for Donations</h3>
-<p><b>Platform:</b> Binance</p>
-<p><b>Cryptocurrency:</b> USDT (Tether)</p>
-<p><b>Network:</b> TRON (TRC20)</p>
-<p><b>USDT Wallet Address:</b></p>
-
-<div class="copybox">
-<span id="wallet">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</span>
-<button onclick="copyText('wallet')">Copy USDT Address</button>
+<p><b>Important Donation Notice:</b></p>
+<p>The initiative is not yet registered. Contributions are currently received through the founder's personal account, not an official foundation account. Please contact us before sending money.</p>
 </div>
-
-<p class="small">Important Note: Verify the wallet address and TRC20 network directly in Binance before accepting any cryptocurrency donations. Applicable legal requirements and platform permissions must also be checked.</p>
+</div>
 </section>
 
-<section id="contact">
+<section class="contact" id="contact">
+<div class="container center">
 <h2>Contact Us</h2>
-<p><b>Email:</b> <a href="mailto:kingwelfarefoundation@gmail.com">kingwelfarefoundation@gmail.com</a></p>
-<p><b>WhatsApp Contact:</b> <a href="https://wa.me/923352253097" target="_blank" rel="noopener">03352253097</a></p>
-<p><b>Official WhatsApp Channel:</b></p>
-<p><a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank" rel="noopener">Follow our WhatsApp Channel</a></p>
-<p><b>Website Project:</b></p>
-<p><a href="https://github.com/habibullah4897/King-welfare-foundation-2" target="_blank" rel="noopener">King Welfare Foundation Website Project</a></p>
+<div class="card">
+<p><b>Founder:</b> Habib Ullah</p>
+<p><b>WhatsApp:</b> 0335 2253097</p>
+<p><b>Email:</b> kingwelfarefoundation@gmail.com</p>
+<a class="btn whatsapp-btn" href="https://wa.me/923352253097">WhatsApp Us</a>
+<a class="btn channel-btn" href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G">WhatsApp Channel</a>
+</div>
+</div>
 </section>
-
-<section>
-<h2>❤️ OUR MESSAGE</h2>
-<p>Let us work together to bring a smile to an orphan's face, provide food to a hungry family, and become a source of hope for those who have nowhere else to turn.</p>
-<p>Even a small contribution from you can bring great happiness into someone's life.</p>
-<p>May Allah reward everyone who contributes to serving humanity and grant us all the ability to help His creation. Ameen.</p>
-<p>With sincere prayers and gratitude,</p>
-<p><b>Habib Ullah</b><br>Founder – KING WELFARE FOUNDATION<br>Pakistan</p>
-<h3>HUMANITY FIRST – OUR MISSION IS TO SERVE HUMANITY. ❤️</h3>
-</section>
-
-</main>
 
 <footer>
-<p>© KING WELFARE FOUNDATION</p>
-<p>Humanity First – Our Mission Is to Serve Humanity</p>
-<p>This is currently an unregistered welfare initiative and is not a government organization or registered charity.</p>
+<h3>👑 King Welfare Foundation</h3>
+<p>Humanity First – Serving Humanity Is Our Mission</p>
+<p>Loralai, Balochistan, Pakistan</p>
+<p>© 2026 King Welfare Foundation</p>
 </footer>
 
 <script>
-// CAMPAIGN PROGRESS
-const campaigns = [
- {target:1000,received:0},
- {target:800,received:0},
- {target:750,received:0}
-];
-
-campaigns.forEach((campaign,index)=>{
- const percentage=Math.min(100,Math.max(0,campaign.received/campaign.target*100));
- document.getElementById("received"+index).textContent="$"+campaign.received.toLocaleString("en-US");
- document.getElementById("percent"+index).textContent=percentage.toFixed(1).replace(".0","")+"%";
- document.getElementById("bar"+index).style.width=percentage+"%";
+function copyIBAN(){
+const iban=document.getElementById("iban").innerText;
+if(navigator.clipboard && window.isSecureContext){
+navigator.clipboard.writeText(iban).then(function(){
+document.getElementById("copyMessage").innerText="IBAN Copied Successfully!";
+}).catch(function(){
+document.getElementById("copyMessage").innerText="Please copy manually: "+iban;
 });
-
-// COPY BUTTON
-async function copyText(id){
- const value=document.getElementById(id).textContent.trim();
- try{
-  await navigator.clipboard.writeText(value);
-  alert("Copied successfully!");
- }catch(error){
-  const field=document.createElement("textarea");
-  field.value=value;
-  document.body.appendChild(field);
-  field.select();
-  try{
-   document.execCommand("copy");
-   alert("Copied successfully!");
-  }catch(e){
-   alert("Please copy manually: "+value);
-  }
-  field.remove();
- }
+}else{
+document.getElementById("copyMessage").innerText="Please copy manually: "+iban;
 }
-</script>
-
-<!-- FIREBASE FIRESTORE -->
-<script type="module">
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
-
-import {
- getFirestore,
- collection,
- query,
- where,
- getDocs
 }
-from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
-
-const firebaseConfig = {
- apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
- authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
- projectId: "kingwellfairfoundation2-e68bd",
- storageBucket: "kingwellfairfoundation2-e68bd.firebasestorage.app",
- messagingSenderId: "492190272172",
- appId: "1:492190272172:web:7cbe0090b0efec05b92d09",
- measurementId: "G-SJP0K2HDGW"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-async function loadPosts(){
- const container=document.getElementById("firebasePosts");
-
- try{
-  const postsQuery=query(
-   collection(db,"posts"),
-   where("status","==","published")
-  );
-
-  const snapshot=await getDocs(postsQuery);
-  container.innerHTML="";
-
-  if(snapshot.empty){
-   const message=document.createElement("p");
-   message.textContent="No published updates yet.";
-   container.appendChild(message);
-   return;
-  }
-
-  snapshot.forEach((documentSnapshot)=>{
-   const post=documentSnapshot.data();
-   const card=document.createElement("div");
-   card.className="post-card";
-
-   const heading=document.createElement("h3");
-   heading.textContent=post.title || "Foundation Update";
-
-   const content=document.createElement("p");
-   content.textContent=post.Content || "";
-
-   card.appendChild(heading);
-
-   let dateValue="";
-   if(post.createdAt && typeof post.createdAt.toDate==="function"){
-    dateValue=post.createdAt.toDate().toLocaleDateString();
-   }else if(post.date){
-    dateValue=String(post.date);
-   }
-
-   if(dateValue){
-    const date=document.createElement("p");
-    date.className="post-date";
-    date.textContent="Published: "+dateValue;
-    card.appendChild(date);
-   }
-
-   card.appendChild(content);
-   container.appendChild(card);
-  });
-
- }catch(error){
-  console.error("Firebase error:",error);
-  container.innerHTML="";
-  const message=document.createElement("p");
-  message.className="error";
-  message.textContent="Unable to load updates. Please check your internet connection or Firebase Firestore settings.";
-  container.appendChild(message);
- }
-}
-
-loadPosts();
 </script>
 
 </body>
  </html>
- 
