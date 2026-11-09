@@ -273,15 +273,73 @@ async function loadPosts() {
    container.appendChild(card);
   });
 
+ 
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+
+import {
+ getFirestore,
+ collection,
+ query,
+ where,
+ getDocs
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+
+const firebaseConfig = {
+ apiKey: "AIzaSyCYE3on4eXbBL1Glyiu78ei7vFQ-_uTL04",
+ authDomain: "kingwellfairfoundation2.firebaseapp.com",
+ projectId: "kingwellfairfoundation2",
+ storageBucket: "kingwellfairfoundation2.firebasestorage.app",
+ messagingSenderId: "565151400001",
+ appId: "1:565151400001:web:517f95917d32e5442bc6c0",
+ measurementId: "G-CX6RB0NCMY"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function loadPosts() {
+ const container = document.getElementById("firebasePosts");
+
+ try {
+  const q = query(
+   collection(db, "posts"),
+   where("status", "==", "published")
+  );
+
+  const snapshot = await getDocs(q);
+  container.innerHTML = "";
+
+  if (snapshot.empty) {
+   container.textContent = "No updates available yet.";
+   return;
+  }
+
+  snapshot.forEach((doc) => {
+   const post = doc.data();
+
+   const card = document.createElement("div");
+   card.className = "campaign";
+
+   const heading = document.createElement("h3");
+   heading.textContent = post.title || "Foundation Update";
+
+   const content = document.createElement("p");
+   content.textContent = post.content || "";
+
+   card.append(heading, content);
+   container.appendChild(card);
+  });
+
  } catch (error) {
-  console.error("Firebase error:", error);
-  container.textContent =
-   "Updates are temporarily unavailable. Please check again later.";
+  console.error(error);
+  container.textContent = "Unable to load updates. Please try again later.";
  }
 }
 
 loadPosts();
 </script>
- 
+
 </body>
                                               </html>
