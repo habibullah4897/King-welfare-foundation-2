@@ -1,33 +1,466 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Donate to King Welfare Foundation and help orphan children, poor families and persons with disabilities in Loralai, Balochistan.">
 <title>Donate - King Welfare Foundation</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f8f3;
+  color: #263238;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #075e36, #11965b);
+  color: white;
+  padding: 35px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+header p {
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 18px;
+}
+
+.intro, .donation-card, .bank-card, .notice {
+  background: white;
+  padding: 22px;
+  margin: 18px 0;
+  border-radius: 13px;
+  box-shadow: 0 3px 12px #00000012;
+}
+
+.intro {
+  border-top: 5px solid #159957;
+  text-align: center;
+}
+
+h2 {
+  color: #087443;
+}
+
+.donation-card {
+  border-left: 5px solid #159957;
+}
+
+.donation-card h3 {
+  margin-top: 0;
+  color: #075e36;
+}
+
+.progress-bg {
+  background: #e3e9e5;
+  width: 100%;
+  height: 17px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #078044, #35c477);
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.percentage {
+  color: #078044;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.donate-btn {
+  display: inline-block;
+  background: #159957;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 7px;
+  text-decoration: none;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.donate-btn:hover {
+  background: #087443;
+}
+
+.bank-card {
+  border-top: 5px solid #e4a11b;
+}
+
+.bank-card h2 {
+  color: #a66c00;
+}
+
+.copy-btn {
+  background: #d93025;
+  color: white;
+  border: none;
+  padding: 10px 17px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.whatsapp-btn {
+  display: block;
+  background: #128c4a;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.notice {
+  background: #fff8e8;
+  border-left: 5px solid #e4a11b;
+}
+
+footer {
+  background: #075e36;
+  color: white;
+  text-align: center;
+  padding: 22px 12px;
+  margin-top: 30px;
+}
+
+.small {
+  font-size: 13px;
+  color: #666;
+}
+
+.status {
+  font-size: 13px;
+  color: #087443;
+  text-align: center;
+}
+
+</style>
 </head>
-<body style="font-family:Arial;text-align:center;background:#f1f8f3;padding:20px">
 
-<h1>King Welfare Foundation</h1>
-<h2>Help Humanity</h2>
+<body>
 
-<p>Whatever amount you donate, InshaAllah, we will help as many deserving people as possible.</p>
+<header>
+  <h1>King Welfare Foundation</h1>
+  <p>Humanity First — Serving Humanity Is Our Mission</p>
+  <p>Loralai, Balochistan, Pakistan</p>
+</header>
 
-<p>Help poor families, orphan children and persons with disabilities, for the sake of Allah.</p>
+<div class="container">
 
-<h3>Official Donation Account</h3>
-<p>Bank: Meezan Bank</p>
-<p>Account Title: Habib Ullah</p>
-<p>IBAN:</p>
-<h3>PK61MEZN0090010107506561</h3>
+<section class="intro">
+  <h2>Help Humanity</h2>
+  <p>
+    Whatever amount you donate, InshaAllah, we will help
+    as many deserving people as possible.
+  </p>
+  <p>
+    Help poor families, orphan children and persons with
+    disabilities, for the sake of Allah.
+  </p>
+</section>
 
-<p>Donations are received in a personal account. Our initiative is currently unregistered.</p>
+<h2>Donation Progress</h2>
+<p>Our fundraising targets and confirmed collected amounts.</p>
 
-<a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" style="background:green;color:white;padding:14px;text-decoration:none;border-radius:8px">
-Join Our WhatsApp Channel
-</a>
+<!-- ORPHANS -->
 
-<p>May Allah reward everyone helping humanity. Ameen.</p>
+<section class="donation-card">
+  <h3>Orphan Children</h3>
+  <p>Support orphan children with essential needs, education and care.</p>
+
+  <div class="progress-info">
+    <span>Target: $850</span>
+    <span class="percentage" id="orphanPercent">0%</span>
+  </div>
+
+  <div class="progress-bg">
+    <div class="progress-fill" id="orphanBar"></div>
+  </div>
+
+  <p id="orphanCollected">Collected: $0</p>
+
+  <a class="donate-btn"
+     href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20orphan%20children."
+     target="_blank">
+     Donate for Orphans
+  </a>
+</section>
+
+<!-- POOR FAMILIES -->
+
+<section class="donation-card">
+  <h3>Poor Families</h3>
+  <p>Help deserving families with food, ration and basic necessities.</p>
+
+  <div class="progress-info">
+    <span>Target: $1,000</span>
+    <span class="percentage" id="poorPercent">0%</span>
+  </div>
+
+  <div class="progress-bg">
+    <div class="progress-fill" id="poorBar"></div>
+  </div>
+
+  <p id="poorCollected">Collected: $0</p>
+
+  <a class="donate-btn"
+     href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20poor%20families."
+     target="_blank">
+     Donate for Poor Families
+  </a>
+</section>
+
+<!-- DISABLED PERSONS -->
+
+<section class="donation-card">
+  <h3>Persons with Disabilities</h3>
+  <p>Support persons with disabilities with essential assistance and care.</p>
+
+  <div class="progress-info">
+    <span>Target: $750</span>
+    <span class="percentage" id="disabledPercent">0%</span>
+  </div>
+
+  <div class="progress-bg">
+    <div class="progress-fill" id="disabledBar"></div>
+  </div>
+
+  <p id="disabledCollected">Collected: $0</p>
+
+  <a class="donate-btn"
+     href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20persons%20with%20disabilities."
+     target="_blank">
+     Donate for Disabled Persons
+  </a>
+</section>
+
+<p class="status" id="firebaseStatus">
+  Connecting to donation progress...
+</p>
+
+<!-- BANK DETAILS -->
+
+<section class="bank-card">
+  <h2>Bank Donation Details</h2>
+
+  <p><strong>Bank:</strong> Meezan Bank</p>
+  <p><strong>Account Title:</strong> Habib Ullah</p>
+  <p><strong>IBAN:</strong></p>
+
+  <h3 id="iban">PK61MEZN0090010107506561</h3>
+
+  <button class="copy-btn" onclick="copyIBAN()">
+    Copy IBAN
+  </button>
+
+  <p class="small" id="copyMessage"></p>
+</section>
+
+<!-- IMPORTANT NOTICE -->
+
+<section class="notice">
+  <h3>Important Transparency Notice</h3>
+
+  <p>
+    King Welfare Foundation is currently an unregistered
+    welfare initiative. It is not yet a registered charity
+    or government organization.
+  </p>
+
+  <p>
+    Donations are currently received in the personal bank
+    account of Habib Ullah, not an official foundation account.
+  </p>
+
+  <p>
+    We aim to maintain transparent records of donations
+    and expenses and share activity updates with donors,
+    respecting the dignity and privacy of beneficiaries.
+  </p>
+</section>
+
+<!-- CONTACT -->
+
+<section class="intro">
+  <h2>Contact Us</h2>
+
+  <p>For donations and confirmation, please contact us first.</p>
+
+  <a class="whatsapp-btn"
+     href="https://wa.me/923352253097"
+     target="_blank">
+     Contact on WhatsApp
+  </a>
+
+  <a class="whatsapp-btn"
+     href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G"
+     target="_blank">
+     Join Our WhatsApp Channel
+  </a>
+
+  <p>Email: kingwelfarefoundation@gmail.com</p>
+  <p>Founder: Habib Ullah</p>
+</section>
+
+</div>
+
+<footer>
+  <p>May Allah reward everyone helping humanity. Ameen.</p>
+  <p>King Welfare Foundation © <span id="year"></span></p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+function copyIBAN() {
+  const iban = "PK61MEZN0090010107506561";
+
+  navigator.clipboard.writeText(iban).then(() => {
+    document.getElementById("copyMessage").textContent =
+      "IBAN copied successfully!";
+  }).catch(() => {
+    document.getElementById("copyMessage").textContent =
+      "Please copy the IBAN manually.";
+  });
+}
+</script>
+
+<!-- FIREBASE CONNECTION -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+import { getFirestore, doc, onSnapshot }
+from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
+  authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
+  projectId: "kingwellfairfoundation2-e68bd",
+  storageBucket: "kingwellfairfoundation2-e68bd.firebasestorage.app",
+  messagingSenderId: "492190272172",
+  appId: "1:492190272172:web:7cbe0090b0efec05b92d09",
+  measurementId: "G-SJP0K2HDGW"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const targets = {
+  orphans: 850,
+  poor: 1000,
+  disabled: 750
+};
+
+const elements = {
+  orphans: {
+    bar: "orphanBar",
+    percent: "orphanPercent",
+    collected: "orphanCollected"
+  },
+  poor: {
+    bar: "poorBar",
+    percent: "poorPercent",
+    collected: "poorCollected"
+  },
+  disabled: {
+    bar: "disabledBar",
+    percent: "disabledPercent",
+    collected: "disabledCollected"
+  }
+};
+
+const status = document.getElementById("firebaseStatus");
+
+onSnapshot(
+  doc(db, "settings", "donationProgress"),
+
+  (snapshot) => {
+
+    if (!snapshot.exists()) {
+      status.textContent =
+        "Donation progress document not found.";
+      return;
+    }
+
+    const data = snapshot.data();
+
+    Object.keys(targets).forEach((category) => {
+
+      const collected = Math.max(
+        0,
+        Number(data[category] || 0)
+      );
+
+      const percentage = Math.min(
+        100,
+        Math.round((collected / targets[category]) * 100)
+      );
+
+      const ids = elements[category];
+
+      document.getElementById(ids.bar).style.width =
+        percentage + "%";
+
+      document.getElementById(ids.percent).textContent =
+        percentage + "%";
+
+      document.getElementById(ids.collected).textContent =
+        "Collected: $" + collected.toLocaleString("en-US");
+    });
+
+    status.textContent =
+      "Donation progress connected successfully.";
+  },
+
+  (error) => {
+    console.error("Firebase error:", error);
+
+    status.textContent =
+      "Unable to load donation progress. Please check Firebase connection and database permissions.";
+  }
+);
+
+</script>
 
 </body>
-</html>
+  </html>
+
