@@ -11,6 +11,11 @@ from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 const status = document.getElementById("firebaseStatus");
 
+if (!status) {
+  alert("ERROR: firebaseStatus element not found in HTML");
+  throw new Error("firebaseStatus element missing");
+}
+
 const firebaseConfig = {
   apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
   authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
@@ -45,24 +50,36 @@ const elements = {
   }
 };
 
+function showError(message) {
+  status.textContent = message;
+  console.error(message);
+}
+
 try {
 
-  const app = getApps().length
+  status.textContent = "Connecting to Firebase...";
+
+  const app = getApps().length > 0
     ? getApp()
     : initializeApp(firebaseConfig);
 
   const db = getFirestore(app);
 
-  status.textContent = "Connecting to Firebase...";
+  const progressRef = doc(
+    db,
+    "settings",
+    "donationProgress"
+  );
 
   onSnapshot(
-    doc(db, "settings", "donationProgress"),
+    progressRef,
 
     (snapshot) => {
 
       if (!snapshot.exists()) {
-        status.textContent =
-          "ERROR: Document settings/donationProgress not found.";
+        showError(
+          "ERROR: settings/donationProgress document not found."
+        );
         return;
       }
 
@@ -77,19 +94,29 @@ try {
 
         const percentage = Math.min(
           100,
-          Math.round(collected / targets[category] * 100)
+          Math.round(
+            collected / targets[category] * 100
+          )
         );
 
         const ids = elements[category];
 
-        document.getElementById(ids.bar).style.width =
-          percentage + "%";
+        const bar = document.getElementById(ids.bar);
+        const percent = document.getElementById(ids.percent);
+        const amount = document.getElementById(ids.collected);
 
-        document.getElementById(ids.percent).textContent =
-          percentage + "%";
+        if (!bar || !percent || !amount) {
+          throw new Error(
+            "Missing HTML elements for " + category
+          );
+        }
 
-        document.getElementById(ids.collected).textContent =
-          "Collected: $" + collected.toLocaleString("en-US");
+        bar.style.width = percentage + "%";
+        percent.textContent = percentage + "%";
+
+        amount.textContent =
+          "Collected: $" +
+          collected.toLocaleString("en-US");
       });
 
       status.textContent =
@@ -97,23 +124,27 @@ try {
     },
 
     (error) => {
-      console.error("Firestore error:", error);
 
-      status.textContent =
+      showError(
         "FIRESTORE ERROR: " +
-        (error.code || "") + " " +
-        (error.message || String(error));
+        (error.code || "unknown") +
+        " - " +
+        (error.message || String(error))
+      );
+
     }
   );
 
 } catch (error) {
 
-  console.error("Firebase initialization error:", error);
-
-  status.textContent =
+  showError(
     "FIREBASE SETUP ERROR: " +
-    (error.code || "") + " " +
-    (error.message || String(error));
+    (error.code || "unknown") +
+    " - " +
+    (error.message || String(error))
+  );
+
 }
 
-</script>
+    </script>
+    
