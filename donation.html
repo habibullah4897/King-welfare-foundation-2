@@ -1,6 +1,135 @@
 
-<!-- FIREBASE CONNECTION -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Donate to King Welfare Foundation, Loralai, Balochistan, Pakistan.">
+<title>Donate | King Welfare Foundation</title>
 
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f7f2;color:#26352a;line-height:1.6}
+header{background:#075b35;color:white;text-align:center;padding:25px 15px}
+header h1{margin:0;font-size:27px}
+.container{max-width:850px;margin:25px auto;padding:0 14px}
+.card{background:white;padding:20px;margin-bottom:18px;border-radius:13px;box-shadow:0 3px 12px #00000012}
+h2{color:#075b35;margin-top:0}
+.progress{height:17px;background:#e4e9e5;border-radius:20px;overflow:hidden;margin:12px 0}
+.bar{height:100%;width:0%;background:#159653;transition:width .5s}
+.percent{font-size:22px;font-weight:bold;color:#08743e}
+button,.donate{display:inline-block;border:0;padding:11px 17px;border-radius:7px;background:#08783e;color:white;font-size:15px;text-decoration:none;cursor:pointer;margin-top:8px}
+.copy{background:#c62828}
+.notice{background:#fff4df;border-left:5px solid #e4a02b}
+.contact a{color:#08783e}
+.status{font-size:14px;color:#555;overflow-wrap:anywhere}
+footer{background:#075b35;color:white;text-align:center;padding:20px 12px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>King Welfare Foundation</h1>
+<p>Humanity First — Serving Humanity Is Our Mission</p>
+<p>Loralai, Balochistan, Pakistan</p>
+</header>
+
+<main class="container">
+
+<section class="card">
+<h2>Support Our Mission</h2>
+<p>Your donation can help orphan children, poor families, widows and persons with disabilities.</p>
+<p>Every contribution makes a difference.</p>
+</section>
+
+<section class="card">
+<h2>Orphan Children Fund</h2>
+<p>Target: <strong>$850</strong></p>
+<div class="progress"><div class="bar" id="orphanBar"></div></div>
+<div class="percent" id="orphanPercent">0%</div>
+<p id="orphanCollected">Collected: $0</p>
+<a class="donate" href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20orphan%20children." target="_blank">Donate for Orphans</a>
+</section>
+
+<section class="card">
+<h2>Poor Families Fund</h2>
+<p>Target: <strong>$1,000</strong></p>
+<div class="progress"><div class="bar" id="poorBar"></div></div>
+<div class="percent" id="poorPercent">0%</div>
+<p id="poorCollected">Collected: $0</p>
+<a class="donate" href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20poor%20families." target="_blank">Donate for Poor Families</a>
+</section>
+
+<section class="card">
+<h2>Persons with Disabilities Fund</h2>
+<p>Target: <strong>$750</strong></p>
+<div class="progress"><div class="bar" id="disabledBar"></div></div>
+<div class="percent" id="disabledPercent">0%</div>
+<p id="disabledCollected">Collected: $0</p>
+<a class="donate" href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20persons%20with%20disabilities." target="_blank">Donate for Disabled</a>
+</section>
+
+<section class="card">
+<h2>Bank Donation Details</h2>
+<p><strong>Bank:</strong> Meezan Bank</p>
+<p><strong>Account Title:</strong> Habib Ullah</p>
+<p><strong>IBAN:</strong></p>
+<p id="iban">PK61MEZN0090010107506561</p>
+<button class="copy" onclick="copyText('iban')">Copy IBAN</button>
+</section>
+
+<section class="card">
+<h2>USDT Donation (TRC20)</h2>
+<p><strong>Wallet Address:</strong></p>
+<p id="wallet">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</p>
+<button class="copy" onclick="copyText('wallet')">Copy USDT Address</button>
+<p><strong>Network:</strong> TRON (TRC20)</p>
+<p>Please confirm the network before sending USDT.</p>
+</section>
+
+<section class="card notice">
+<h2>Important Transparency Notice</h2>
+<p>King Welfare Foundation is currently an unregistered welfare initiative. It is not a government organization or registered charity at present.</p>
+<p>Donations are currently received through the founder's personal account, not an official foundation bank account.</p>
+<p>Donation records and spending updates will be shared transparently, while respecting beneficiaries' dignity and permission.</p>
+</section>
+
+<section class="card contact">
+<h2>Contact Us</h2>
+<p><strong>Founder:</strong> Habib Ullah</p>
+<p><strong>WhatsApp:</strong> <a href="https://wa.me/923352253097">03352253097</a></p>
+<p><strong>Email:</strong> <a href="mailto:kingwelfarefoundation@gmail.com">kingwelfarefoundation@gmail.com</a></p>
+<p><strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">Follow Our Updates</a></p>
+</section>
+
+<section class="card">
+<h2>Donation Progress Status</h2>
+<p class="status" id="firebaseStatus">Connecting to Firebase...</p>
+</section>
+
+</main>
+
+<footer>
+<p>King Welfare Foundation</p>
+<p>Humanity First — Serving Humanity Is Our Mission</p>
+<p>© 2026 King Welfare Foundation</p>
+</footer>
+
+<script>
+function copyText(id){
+  const value=document.getElementById(id).textContent.trim();
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(value)
+      .then(()=>alert("Copied successfully!"))
+      .catch(()=>alert("Please copy manually: "+value));
+  }else{
+    alert("Please copy manually: "+value);
+  }
+}
+</script>
+
+<!-- FIREBASE CONNECTION -->
 <script type="module">
 
 import { initializeApp, getApps, getApp }
@@ -9,142 +138,82 @@ from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 import { getFirestore, doc, onSnapshot }
 from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-const status = document.getElementById("firebaseStatus");
+const status=document.getElementById("firebaseStatus");
 
-if (!status) {
-  alert("ERROR: firebaseStatus element not found in HTML");
-  throw new Error("firebaseStatus element missing");
-}
-
-const firebaseConfig = {
-  apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
-  authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
-  projectId: "kingwellfairfoundation2-e68bd",
-  storageBucket: "kingwellfairfoundation2-e68bd.firebasestorage.app",
-  messagingSenderId: "492190272172",
-  appId: "1:492190272172:web:7cbe0090b0efec05b92d09",
-  measurementId: "G-SJP0K2HDGW"
+const firebaseConfig={
+  apiKey:"AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
+  authDomain:"kingwellfairfoundation2-e68bd.firebaseapp.com",
+  projectId:"kingwellfairfoundation2-e68bd",
+  storageBucket:"kingwellfairfoundation2-e68bd.firebasestorage.app",
+  messagingSenderId:"492190272172",
+  appId:"1:492190272172:web:7cbe0090b0efec05b92d09",
+  measurementId:"G-SJP0K2HDGW"
 };
 
-const targets = {
-  orphans: 850,
-  poor: 1000,
-  disabled: 750
+const targets={
+  orphans:850,
+  poor:1000,
+  disabled:750
 };
 
-const elements = {
-  orphans: {
-    bar: "orphanBar",
-    percent: "orphanPercent",
-    collected: "orphanCollected"
-  },
-  poor: {
-    bar: "poorBar",
-    percent: "poorPercent",
-    collected: "poorCollected"
-  },
-  disabled: {
-    bar: "disabledBar",
-    percent: "disabledPercent",
-    collected: "disabledCollected"
-  }
+const elements={
+  orphans:{bar:"orphanBar",percent:"orphanPercent",collected:"orphanCollected"},
+  poor:{bar:"poorBar",percent:"poorPercent",collected:"poorCollected"},
+  disabled:{bar:"disabledBar",percent:"disabledPercent",collected:"disabledCollected"}
 };
 
-function showError(message) {
-  status.textContent = message;
+function showError(message){
+  status.textContent=message;
   console.error(message);
 }
 
-try {
+try{
 
-  status.textContent = "Connecting to Firebase...";
+  status.textContent="Connecting to Firebase...";
 
-  const app = getApps().length > 0
-    ? getApp()
-    : initializeApp(firebaseConfig);
-
-  const db = getFirestore(app);
-
-  const progressRef = doc(
-    db,
-    "settings",
-    "donationProgress"
-  );
+  const app=getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db=getFirestore(app);
 
   onSnapshot(
-    progressRef,
+    doc(db,"settings","donationProgress"),
 
-    (snapshot) => {
+    (snapshot)=>{
 
-      if (!snapshot.exists()) {
-        showError(
-          "ERROR: settings/donationProgress document not found."
-        );
+      if(!snapshot.exists()){
+        showError("ERROR: settings/donationProgress document not found.");
         return;
       }
 
-      const data = snapshot.data();
+      const data=snapshot.data();
 
-      Object.keys(targets).forEach((category) => {
+      Object.keys(targets).forEach((category)=>{
 
-        const collected = Math.max(
-          0,
-          Number(data[category] || 0)
-        );
+        const collected=Math.max(0,Number(data[category]||0));
+        const percentage=Math.min(100,Math.round(collected/targets[category]*100));
+        const ids=elements[category];
 
-        const percentage = Math.min(
-          100,
-          Math.round(
-            collected / targets[category] * 100
-          )
-        );
+        document.getElementById(ids.bar).style.width=percentage+"%";
+        document.getElementById(ids.percent).textContent=percentage+"%";
+        document.getElementById(ids.collected).textContent=
+          "Collected: $"+collected.toLocaleString("en-US");
 
-        const ids = elements[category];
-
-        const bar = document.getElementById(ids.bar);
-        const percent = document.getElementById(ids.percent);
-        const amount = document.getElementById(ids.collected);
-
-        if (!bar || !percent || !amount) {
-          throw new Error(
-            "Missing HTML elements for " + category
-          );
-        }
-
-        bar.style.width = percentage + "%";
-        percent.textContent = percentage + "%";
-
-        amount.textContent =
-          "Collected: $" +
-          collected.toLocaleString("en-US");
       });
 
-      status.textContent =
-        "Donation progress connected successfully.";
+      status.textContent="Donation progress connected successfully.";
+
     },
 
-    (error) => {
-
-      showError(
-        "FIRESTORE ERROR: " +
-        (error.code || "unknown") +
-        " - " +
-        (error.message || String(error))
-      );
-
+    (error)=>{
+      showError("FIRESTORE ERROR: "+(error.code||"unknown")+" - "+(error.message||String(error)));
     }
   );
 
-} catch (error) {
+}catch(error){
 
-  showError(
-    "FIREBASE SETUP ERROR: " +
-    (error.code || "unknown") +
-    " - " +
-    (error.message || String(error))
-  );
+  showError("FIREBASE SETUP ERROR: "+(error.code||"unknown")+" - "+(error.message||String(error)));
 
 }
 
-    </script>
-    
+</script>
+</body>
+</html>
