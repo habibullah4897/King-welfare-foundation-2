@@ -1,463 +1,343 @@
-<!DOCTYPE html>
-<html lang="ur">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#075b46">
-  <meta name="description" content="King Welfare Foundation — Humanity First. Serving Humanity Is Our Mission.">
-  <title>King Welfare Foundation | Humanity First</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-  <style>
-    :root {
-      --green:#075b46;
-      --green2:#0b8061;
-      --gold:#ffca55;
-      --dark:#10251f;
-      --light:#f3faf6;
-      --white:#fff;
-      --muted:#687a72;
-      --shadow:0 12px 35px rgba(0,0,0,.09);
-    }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body {
-      font-family:'Poppins','Noto Nastaliq Urdu',sans-serif;
-      background:var(--light);
-      color:var(--dark);
-      line-height:1.7;
-    }
-    a { text-decoration:none; color:inherit; }
-    button { font:inherit; cursor:pointer; }
-    .urdu { font-family:'Noto Nastaliq Urdu',serif; }
-    .topbar {
-      background:#043d30;color:#fff;text-align:center;
-      padding:8px 12px;font-size:13px;
-    }
-    header {
-      background:rgba(255,255,255,.97);
-      position:sticky;top:0;z-index:50;
-      box-shadow:0 3px 18px rgba(0,0,0,.07);
-    }
-    .nav {
-      max-width:1150px;margin:auto;padding:12px 18px;
-      display:flex;align-items:center;justify-content:space-between;gap:15px;
-    }
-    .brand { display:flex;align-items:center;gap:10px; }
-    .logo {
-      width:48px;height:48px;border-radius:15px;
-      display:grid;place-items:center;
-      color:#fff;font-size:25px;
-      background:linear-gradient(135deg,var(--green),#16a078);
-    }
-    .brand strong { display:block;color:var(--green);font-size:16px;line-height:1.3; }
-    .brand small { color:var(--muted);font-size:10px; }
-    .navlinks { display:flex;gap:18px;align-items:center;flex-wrap:wrap; }
-    .navlinks a { font-size:13px;font-weight:600; }
-    .navlinks a:hover { color:var(--green2); }
-    .menu-btn {
-      display:none;border:0;background:var(--green);color:white;
-      border-radius:9px;padding:8px 12px;
-    }
-    .hero {
-      color:#fff;position:relative;overflow:hidden;
-      background:linear-gradient(120deg,rgba(3,52,39,.96),rgba(8,125,91,.88)),
-      radial-gradient(circle at 80% 20%,#f8c75a,transparent 35%);
-      padding:85px 20px 90px;text-align:center;
-    }
-    .hero:before,.hero:after {
-      content:"";position:absolute;border:1px solid rgba(255,255,255,.13);
-      border-radius:50%;width:320px;height:320px;
-    }
-    .hero:before { top:-180px;left:-100px; }
-    .hero:after { bottom:-230px;right:-80px;width:440px;height:440px; }
-    .hero-content { position:relative;z-index:1;max-width:850px;margin:auto; }
-    .hero-tag {
-      display:inline-block;border:1px solid rgba(255,255,255,.4);
-      border-radius:30px;padding:7px 17px;font-size:12px;
-      letter-spacing:1px;margin-bottom:20px;color:var(--gold);
-    }
-    .hero h1 { font-size:clamp(30px,6vw,58px);line-height:1.2;margin-bottom:18px; }
-    .hero p { max-width:680px;margin:0 auto 25px;color:#e5fff4;font-size:16px; }
-    .hero-buttons { display:flex;justify-content:center;gap:12px;flex-wrap:wrap; }
-    .btn {
-      display:inline-flex;align-items:center;justify-content:center;
-      border:0;border-radius:10px;padding:12px 21px;
-      font-weight:700;font-size:14px;transition:.2s;
-    }
-    .btn:hover { transform:translateY(-2px); }
-    .btn-gold { background:var(--gold);color:#24352d; }
-    .btn-white { background:#fff;color:var(--green); }
-    .btn-green { background:var(--green);color:#fff; }
-    .section { max-width:1150px;margin:auto;padding:65px 18px; }
-    .section-head { text-align:center;margin-bottom:32px; }
-    .section-head span {
-      color:var(--green2);font-weight:700;font-size:12px;
-      letter-spacing:2px;text-transform:uppercase;
-    }
-    .section-head h2 { font-size:clamp(24px,4vw,35px);margin:7px 0;color:var(--dark); }
-    .section-head p { color:var(--muted);font-size:14px; }
-    .about-grid { display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center; }
-    .about-text p { color:#52645c;margin:12px 0;font-size:14px; }
-    .about-panel {
-      background:linear-gradient(145deg,#075b46,#0d9270);
-      color:#fff;border-radius:22px;padding:30px;box-shadow:var(--shadow);
-    }
-    .about-panel h3 { color:var(--gold);margin-bottom:12px; }
-    .about-panel p { font-size:14px;color:#e6fff4; }
-    .facts { display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px; }
-    .fact { background:rgba(255,255,255,.12);padding:14px;border-radius:12px; }
-    .fact b { display:block;color:var(--gold);font-size:13px; }
-    .fact small { font-size:12px;color:#fff; }
-    .cards { display:grid;grid-template-columns:repeat(4,1fr);gap:17px; }
-    .card {
-      background:#fff;border:1px solid #e7eee9;border-radius:17px;
-      padding:22px;box-shadow:var(--shadow);
-    }
-    .card-icon {
-      width:48px;height:48px;border-radius:14px;
-      display:grid;place-items:center;font-size:24px;
-      background:#e4f5ed;margin-bottom:13px;
-    }
-    .card h3 { font-size:16px;margin-bottom:8px;color:var(--green); }
-    .card p { color:var(--muted);font-size:13px; }
-    .donation-wrap {
-      background:linear-gradient(135deg,#e7f6ed,#fff8e6);
-      border-radius:25px;padding:30px;
-    }
-    .donation-grid { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
-    .donate-box {
-      background:#fff;border-radius:18px;padding:24px;
-      box-shadow:var(--shadow);min-width:0;
-    }
-    .donate-box h3 { color:var(--green);margin-bottom:12px;font-size:19px; }
-    .detail-label { color:var(--muted);font-size:12px;margin:12px 0 4px; }
-    .copy-row {
-      display:flex;align-items:center;gap:8px;
-      background:#f1f7f3;border:1px solid #dceae1;
-      padding:10px;border-radius:10px;min-width:0;
-    }
-    .copy-row code {
-      overflow-wrap:anywhere;flex:1;font-size:12px;color:#183c2e;
-    }
-    .copy-btn {
-      flex-shrink:0;border:0;background:var(--green);color:white;
-      border-radius:8px;padding:8px 10px;font-size:11px;font-weight:700;
-    }
-    .qr-area { text-align:center;margin:16px 0 10px; }
-    #qrcode {
-      display:inline-flex;align-items:center;justify-content:center;
-      min-width:190px;min-height:190px;padding:10px;
-      border:1px solid #e5eee7;border-radius:12px;background:#fff;
-    }
-    #qrcode img,#qrcode canvas { max-width:180px;height:auto; }
-    .qr-note { color:var(--muted);font-size:11px;margin-top:8px; }
-    .warning {
-      background:#fff5d9;color:#72530c;border:1px solid #f5df9c;
-      padding:12px;border-radius:10px;font-size:12px;margin-top:15px;
-    }
-    .notice {
-      background:#fff7e8;border:1px solid #f3d99e;
-      padding:18px;border-radius:14px;color:#624b17;font-size:13px;
-    }
-    .post-list { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
-    .post {
-      background:#fff;padding:20px;border-radius:15px;
-      border-left:4px solid var(--green2);box-shadow:var(--shadow);
-    }
-    .post h3 { color:var(--green);font-size:16px;margin-bottom:8px; }
-    .post p { color:var(--muted);font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere; }
-    .post small { display:block;color:#89978f;margin-top:12px;font-size:10px; }
-    .status { text-align:center;color:var(--muted);font-size:13px;padding:15px; }
-    .contact-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
-    .contact-card {
-      text-align:center;background:#fff;padding:22px;border-radius:15px;
-      box-shadow:var(--shadow);overflow-wrap:anywhere;
-    }
-    .contact-card .card-icon { margin:0 auto 10px; }
-    .contact-card h3 { color:var(--green);font-size:15px; }
-    .contact-card p { color:var(--muted);font-size:12px;margin:5px 0 12px; }
-    footer { background:#062f25;color:#e4f6ed;padding:35px 18px 18px; }
-    .footer-inner { max-width:1150px;margin:auto;text-align:center; }
-    footer h2 { color:var(--gold);font-size:22px; }
-    footer p { font-size:12px;color:#c3d8ce;margin:8px 0; }
-    .footer-links { display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:18px 0; }
-    .footer-links a { font-size:12px;color:#fff; }
-    .copyright { border-top:1px solid #285044;padding-top:15px;margin-top:20px; }
-    .whatsapp-float {
-      position:fixed;right:17px;bottom:18px;z-index:60;
-      background:#19bd69;color:white;width:55px;height:55px;
-      display:grid;place-items:center;border-radius:50%;
-      font-size:27px;box-shadow:0 5px 20px #0003;
-    }
-    @media(max-width:850px) {
-      .cards { grid-template-columns:repeat(2,1fr); }
-      .navlinks { display:none;position:absolute;top:72px;left:0;right:0;
-        background:#fff;padding:18px;box-shadow:var(--shadow); }
-      .navlinks.open { display:grid;grid-template-columns:1fr 1fr; }
-      .menu-btn { display:block; }
-    }
-    @media(max-width:650px) {
-      .hero { padding:65px 16px; }
-      .about-grid,.donation-grid { grid-template-columns:1fr; }
-      .post-list,.contact-grid { grid-template-columns:1fr; }
-      .section { padding:48px 15px; }
-      .donation-wrap { padding:15px; }
-      .donate-box { padding:18px; }
-      .brand strong { font-size:13px; }
-      .brand small { font-size:9px; }
-    }
-    @media(max-width:390px) {
-      .cards { grid-template-columns:1fr; }
-      .copy-row { align-items:flex-start; }
-      .copy-btn { padding:8px 7px; }
-    }
-  </style>
-</head>
+<script type="module">
+  // =====================================
+  // KING WELFARE FOUNDATION
+  // FIREBASE + ANALYTICS + VISITOR TRACKING
+  // =====================================
 
-<body>
-  <div class="topbar">Humanity First — Serving Humanity Is Our Mission</div>
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 
-  <header>
-    <nav class="nav">
-      <a class="brand" href="#home">
-        <div class="logo">♥</div>
-        <div>
-          <strong>King Welfare Foundation</strong>
-          <small>Humanity First</small>
-        </div>
-      </a>
-      <div class="navlinks" id="navlinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Our Work</a>
-        <a href="#donate">Donate</a>
-        <a href="#updates">Updates</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button class="menu-btn" id="menuBtn" type="button">☰ Menu</button>
-    </nav>
-  </header>
+  import {
+    getAnalytics,
+    logEvent,
+    isSupported
+  } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-analytics.js";
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="hero-tag">KING WELFARE FOUNDATION</div>
-        <h1>Humanity First</h1>
-        <p>Serving Humanity Is Our Mission. Together, we can support people in need and build a kinder, stronger community.</p>
-        <div class="hero-buttons">
-          <a class="btn btn-gold" href="#donate">♥ Donate Now</a>
-          <a class="btn btn-white" href="#about">Learn About Us</a>
-        </div>
-      </div>
-    </section>
+  import {
+    getFirestore,
+    collection,
+    onSnapshot
+  } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-    <section class="section" id="about">
-      <div class="section-head">
-        <span>Who We Are</span>
-        <h2>About Our Foundation</h2>
-        <p>Helping people with kindness, dignity and transparency.</p>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <h2 style="color:var(--green)">A Message of Humanity</h2>
-          <p>King Welfare Foundation is a community welfare initiative based in Loralai, Balochistan, Pakistan. Our aim is to encourage compassion and support people facing hardship.</p>
-          <p>We believe that every person deserves respect, care and an opportunity for a better life. We welcome responsible support and cooperation from people who share this mission.</p>
-          <p class="urdu">انسانیت کی خدمت ہمارا مقصد ہے۔ آئیے مل کر ضرورت مند لوگوں کی مدد کریں۔</p>
-        </div>
-        <div class="about-panel">
-          <h3>Our Mission</h3>
-          <p>Humanity First — Serving Humanity Is Our Mission.</p>
-          <div class="facts">
-            <div class="fact"><b>Founder</b><small>Habib Ullah</small></div>
-            <div class="fact"><b>Location</b><small>Loralai, Balochistan</small></div>
-            <div class="fact"><b>Country</b><small>Pakistan</small></div>
-            <div class="fact"><b>Our Values</b><small>Kindness & Transparency</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
+  // FIREBASE CONFIGURATION
+  const firebaseConfig = {
+    apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
+    authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
+    projectId: "kingwellfairfoundation2-e68bd",
+    storageBucket: "kingwellfairfoundation2-e68bd.firebasestorage.app",
+    messagingSenderId: "492190272172",
+    appId: "1:492190272172:web:7cbe0090b0efec05b92d09",
+    measurementId: "G-SJP0K2HDGW"
+  };
 
-    <section class="section" id="services">
-      <div class="section-head">
-        <span>Our Areas of Support</span>
-        <h2>How We Aim to Help</h2>
-        <p>Areas where community support can make a difference.</p>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="card-icon">🍲</div>
-          <h3>Food Support</h3>
-          <p>Support for families who need food and essential supplies.</p>
-        </article>
-        <article class="card">
-          <div class="card-icon">📚</div>
-          <h3>Education</h3>
-          <p>Encouraging learning and educational support for children.</p>
-        </article>
-        <article class="card">
-          <div class="card-icon">🏥</div>
-          <h3>Medical Help</h3>
-          <p>Supporting access to essential medical assistance where possible.</p>
-        </article>
-        <article class="card">
-          <div class="card-icon">🏠</div>
-          <h3>Community Welfare</h3>
-          <p>Helping vulnerable people and families in difficult situations.</p>
-        </article>
-      </div>
-      <p class="status">These are our areas of focus, not a claim that every program is currently active.</p>
-    </section>
+  // INITIALIZE FIREBASE
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    <section class="section" id="donate">
-      <div class="section-head">
-        <span>Support Our Mission</span>
-        <h2>Make a Donation</h2>
-        <p>Your support can help people in need. Please verify details before sending funds.</p>
-      </div>
+  // =====================================
+  // GOOGLE ANALYTICS
+  // =====================================
 
-      <div class="donation-wrap">
-        <div class="donation-grid">
-          <div class="donate-box">
-            <h3>🏦 Bank Transfer</h3>
-            <div class="detail-label">Account Title</div>
-            <div class="copy-row">
-              <code id="accountTitle">Habib Ullah</code>
-              <button class="copy-btn" data-copy="accountTitle">Copy</button>
-            </div>
-            <div class="detail-label">Bank IBAN</div>
-            <div class="copy-row">
-              <code id="iban">PK61MEZN0090010107506561</code>
-              <button class="copy-btn" data-copy="iban">Copy</button>
-            </div>
-            <p class="warning">Please confirm the account title and IBAN with the foundation before making a bank transfer.</p>
-          </div>
+  let analytics = null;
 
-          <div class="donate-box">
-            <h3>₮ USDT — TRON / TRC20</h3>
-            <div class="detail-label">USDT Wallet Address</div>
-            <div class="copy-row">
-              <code id="wallet">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</code>
-              <button class="copy-btn" data-copy="wallet">Copy</button>
-            </div>
-            <div class="qr-area">
-              <div id="qrcode" aria-label="USDT wallet QR code">
-                <span style="font-size:12px;color:#687a72">Loading QR code…</span>
-              </div>
-              <p class="qr-note">Scan to copy/open the wallet address. Network: TRON (TRC20).</p>
-            </div>
-            <p class="warning">Send USDT only on the TRON (TRC20) network. Sending on another network may result in permanent loss. This QR code contains the wallet address only; it does not verify payment or set an amount.</p>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:22px">
-          <a class="btn btn-green" href="https://wa.me/923352253097" target="_blank" rel="noopener">Contact Us About Donations</a>
-        </div>
-      </div>
-    </section>
+  async function startAnalytics() {
+    try {
+      if (await isSupported()) {
+        analytics = getAnalytics(app);
 
-    <section class="section" id="updates">
-      <div class="section-head">
-        <span>Latest News</span>
-        <h2>Foundation Updates</h2>
-        <p>Published updates from our Firebase database.</p>
-      </div>
-      <div id="posts" class="post-list">
-        <div class="status">Loading latest updates…</div>
-      </div>
-      <div id="postsStatus" class="status" aria-live="polite"></div>
-    </section>
+        // Website visitor
+        logEvent(analytics, "website_visit", {
+          page_path: location.pathname,
+          page_title: document.title
+        });
 
-    <section class="section">
-      <div class="section-head">
-        <span>Transparency</span>
-        <h2>Our Commitment</h2>
-      </div>
-      <div class="notice">
-        <strong>Important public disclosure:</strong>
-        King Welfare Foundation is currently an unregistered welfare initiative. It is not presenting itself as a registered charity, government body, or officially approved organization. Please make donations only after independently verifying the payment details and understanding this status. Donation receipts and project updates should be requested through our official contact channels.
-      </div>
-    </section>
+        // Standard page view
+        logEvent(analytics, "page_view", {
+          page_location: location.href,
+          page_title: document.title,
+          page_path: location.pathname
+        });
 
-    <section class="section" id="contact">
-      <div class="section-head">
-        <span>Get In Touch</span>
-        <h2>Contact King Welfare Foundation</h2>
-        <p>For questions, cooperation and donation verification.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="card-icon">✉️</div>
-          <h3>Email</h3>
-          <p>kingwelfarefoundation@gmail.com</p>
-          <a class="btn btn-green" href="mailto:kingwelfarefoundation@gmail.com">Send Email</a>
-        </div>
-        <div class="contact-card">
-          <div class="card-icon">📱</div>
-          <h3>WhatsApp</h3>
-          <p>0335 2253097</p>
-          <a class="btn btn-green" href="https://wa.me/923352253097" target="_blank" rel="noopener">Message Us</a>
-        </div>
-        <div class="contact-card">
-          <div class="card-icon">📍</div>
-          <h3>Our Location</h3>
-          <p>Loralai, Balochistan, Pakistan</p>
-          <span style="font-size:12px;color:var(--muted)">Pakistan</span>
-        </div>
-      </div>
-      <div class="contact-grid" style="margin-top:16px">
-        <div class="contact-card">
-          <div class="card-icon">🌐</div>
-          <h3>Facebook</h3>
-          <p>Follow our foundation</p>
-          <a class="btn btn-green" href="https://www.facebook.com/share/1F9yd3f7HX/" target="_blank" rel="noopener">Visit Facebook</a>
-        </div>
-        <div class="contact-card">
-          <div class="card-icon">💬</div>
-          <h3>WhatsApp Channel</h3>
-          <p>Follow public announcements</p>
-          <a class="btn btn-green" href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank" rel="noopener">Join Channel</a>
-        </div>
-        <div class="contact-card">
-          <div class="card-icon">🤝</div>
-          <h3>Work With Us</h3>
-          <p>Contact us for volunteering and cooperation.</p>
-          <a class="btn btn-green" href="mailto:kingwelfarefoundation@gmail.com">Contact Us</a>
-        </div>
-      </div>
-    </section>
-  </main>
+        console.log("King Welfare Analytics Connected");
+      }
+    } catch (error) {
+      console.error("Analytics error:", error);
+    }
+  }
 
-  <footer>
-    <div class="footer-inner">
-      <h2>King Welfare Foundation</h2>
-      <p>Humanity First — Serving Humanity Is Our Mission.</p>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#donate">Donate</a>
-        <a href="#updates">Updates</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <p>Based in Loralai, Balochistan, Pakistan.</p>
-      <p class="copyright">© <span id="year"></span> King Welfare Foundation. All rights reserved.</p>
-      <p>Currently an unregistered welfare initiative.</p>
-    </div>
-  </footer>
+  startAnalytics();
 
-  <a class="whatsapp-float" href="https://wa.me/923352253097" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">☏</a>
+  function trackEvent(eventName, details = {}) {
+    if (!analytics) return;
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script>
-    // Mobile navigation
-    document.getElementById("menuBtn").addEventListener("click", function () {
-      document.getElementById("navlinks").classList.toggle("open");
+    try {
+      logEvent(analytics, eventName, details);
+    } catch (error) {
+      console.error("Tracking error:", error);
+    }
+  }
+
+  // =====================================
+  // MOBILE NAVIGATION
+  // =====================================
+
+  const menuBtn = document.getElementById("menuBtn");
+  const navlinks = document.getElementById("navlinks");
+
+  if (menuBtn && navlinks) {
+    menuBtn.addEventListener("click", function() {
+      navlinks.classList.toggle("open");
     });
-    document.querySelectorAll(".navlinks a").forEach(function(link) {
+
+    document.querySelectorAll(".navlinks a").forEach(link => {
       link.addEventListener("click", function() {
-        document.getElementById("navlinks").classList.remove("open");
+        navlinks.classList.remove("open");
       });
     });
+  }
 
-    // Curr
+  // =====================================
+  // COPY BUTTONS
+  // =====================================
+
+  document.querySelectorAll("[data-copy]").forEach(button => {
+    button.addEventListener("click", async function() {
+      const element = document.getElementById(
+        this.getAttribute("data-copy")
+      );
+
+      if (!element) return;
+
+      const value = element.innerText.trim();
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(value);
+        } else {
+          const temp = document.createElement("textarea");
+          temp.value = value;
+          temp.style.position = "fixed";
+          temp.style.opacity = "0";
+          document.body.appendChild(temp);
+          temp.select();
+
+          if (!document.execCommand("copy")) {
+            throw new Error("Copy failed");
+          }
+
+          temp.remove();
+        }
+
+        const oldText = this.innerText;
+        this.innerText = "Copied!";
+
+        setTimeout(() => {
+          this.innerText = oldText;
+        }, 1800);
+
+        trackEvent("donation_details_copy", {
+          copied_field: element.id
+        });
+
+      } catch (error) {
+        alert("Copy failed. Please select and copy manually.");
+        console.error(error);
+      }
+    });
+  });
+
+  // =====================================
+  // USDT TRC20 QR CODE
+  // =====================================
+
+  const walletAddress =
+    "TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF";
+
+  const qrContainer = document.getElementById("qrcode");
+
+  if (qrContainer) {
+    if (typeof QRCode !== "undefined") {
+      qrContainer.innerHTML = "";
+
+      new QRCode(qrContainer, {
+        text: walletAddress,
+        width: 180,
+        height: 180,
+        colorDark: "#075b46",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    } else {
+      qrContainer.innerText = "QR code could not load.";
+    }
+  }
+
+  // =====================================
+  // DONATION TRACKING
+  // =====================================
+
+  const donationSection = document.getElementById("donate");
+
+  if (donationSection && "IntersectionObserver" in window) {
+    const donationObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          trackEvent("donation_page_view", {
+            page_path: location.pathname
+          });
+
+          donationObserver.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.35
+    });
+
+    donationObserver.observe(donationSection);
+  }
+
+  // DONATE BUTTON CLICKS
+  document.addEventListener("click", function(event) {
+    const button = event.target.closest("a, button");
+
+    if (!button) return;
+
+    const text = (
+      button.innerText ||
+      button.getAttribute("aria-label") ||
+      ""
+    ).toLowerCase();
+
+    const href = (
+      button.getAttribute("href") || ""
+    ).toLowerCase();
+
+    if (/donate|donation|contribute/.test(text + " " + href)) {
+      trackEvent("donate_click", {
+        button_text: text.substring(0, 100),
+        page_path: location.pathname
+      });
+    }
+  });
+
+  // =====================================
+  // FIRESTORE FOUNDATION UPDATES
+  // =====================================
+
+  const postsContainer = document.getElementById("posts");
+  const postsStatus = document.getElementById("postsStatus");
+
+  function showMessage(message) {
+    if (postsStatus) {
+      postsStatus.textContent = message;
+    }
+  }
+
+  function renderPosts(snapshot) {
+    if (!postsContainer) return;
+
+    postsContainer.innerHTML = "";
+
+    const publishedPosts = snapshot.docs
+      .map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      .filter(post =>
+        String(post.status || "").toLowerCase() === "published"
+      )
+      .sort((a, b) => {
+        const dateA = a.createdAt?.toMillis?.() || 0;
+        const dateB = b.createdAt?.toMillis?.() || 0;
+        return dateB - dateA;
+      });
+
+    if (publishedPosts.length === 0) {
+      postsContainer.innerHTML =
+        '<div class="status">No published updates available yet.</div>';
+
+      showMessage("");
+      return;
+    }
+
+    publishedPosts.forEach(post => {
+      const article = document.createElement("article");
+      article.className = "post";
+
+      const heading = document.createElement("h3");
+      heading.textContent =
+        post.title || post.Title || "Foundation Update";
+
+      const paragraph = document.createElement("p");
+      paragraph.textContent =
+        post.content || post.Content || "";
+
+      const date = document.createElement("small");
+
+      let dateText = "";
+
+      if (post.createdAt?.toDate) {
+        dateText = post.createdAt.toDate().toLocaleDateString();
+      } else if (post.date) {
+        dateText = String(post.date);
+      }
+
+      date.textContent = dateText;
+
+      article.appendChild(heading);
+      article.appendChild(paragraph);
+
+      if (dateText) {
+        article.appendChild(date);
+      }
+
+      postsContainer.appendChild(article);
+    });
+
+    showMessage("Latest foundation updates loaded successfully.");
+  }
+
+  // REALTIME FIRESTORE LISTENER
+  try {
+    onSnapshot(
+      collection(db, "posts"),
+      snapshot => {
+        renderPosts(snapshot);
+        console.log("Foundation updates loaded.");
+      },
+      error => {
+        console.error("Firestore error:", error);
+
+        if (postsContainer) {
+          postsContainer.innerHTML =
+            '<div class="status">Unable to load updates. Please try again later.</div>';
+        }
+
+        showMessage("Please check Firebase Firestore permissions.");
+      }
+    );
+
+  } catch (error) {
+    console.error("Firestore setup error:", error);
+    showMessage("Firebase connection error.");
+  }
+
+  // =====================================
+  // FOOTER YEAR
+  // =====================================
+
+  const yearElement = document.getElementById("year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  console.log("King Welfare Foundation Website Ready");
+
+</script>
+
+</body>
+</html>
