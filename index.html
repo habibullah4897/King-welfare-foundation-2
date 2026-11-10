@@ -1,125 +1,136 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#075b46">
-<meta name="description" content="King Welfare Foundation — Humanity First. Serving Humanity Is Our Mission.">
-<title>King Welfare Foundation | Humanity First</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="King Welfare Foundation - Humanity First. Supporting orphan children, poor families, widows and persons with disabilities in Loralai, Balochistan, Pakistan.">
+<title>King Welfare Foundation</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
-:root {
-  --green:#075b46;
-  --dark:#063d32;
-  --gold:#e5b84b;
-  --light:#f4faf7;
-  --white:#fff;
-  --text:#24352f;
-  --shadow:0 8px 28px rgba(0,0,0,.09);
-}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{font-family:'Poppins',Arial,sans-serif;color:var(--text);background:#fff;line-height:1.7}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer}
-.container{width:min(1120px,92%);margin:auto}
-header{background:var(--green);color:white;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
-.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800}
-.logo{width:46px;height:46px;border-radius:50%;background:var(--gold);color:var(--dark);display:grid;place-items:center;font-size:23px;font-weight:900}
-.navlinks{display:flex;align-items:center;gap:22px}
-.navlinks a{font-size:13px;font-weight:600;transition:.2s}
-.navlinks a:hover{color:var(--gold)}
-.menu-btn{display:none;background:transparent;border:1px solid #ffffff66;color:white;padding:7px 12px;border-radius:8px;font-size:22px}
-.hero{background:linear-gradient(130deg,#063d32,#08785a);color:white;padding:95px 0;text-align:center;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;width:300px;height:300px;border:1px solid #ffffff22;border-radius:50%;right:-90px;top:-100px}
-.hero-content{position:relative;z-index:1}
-.tag{display:inline-block;background:#ffffff18;color:var(--gold);padding:7px 18px;border:1px solid #ffffff35;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:1px}
-.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.2;margin:22px 0 15px;font-weight:800}
-.hero h1 span{color:var(--gold)}
-.hero p{max-width:700px;margin:0 auto 28px;color:#e4f3ed;font-size:16px}
-.btn{display:inline-block;padding:13px 24px;border-radius:9px;font-weight:700;font-size:14px;transition:.2s;border:0}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
-.btn-gold{background:var(--gold);color:#26351e}
-.btn-outline{border:1px solid white;color:white;margin-left:8px}
-section{padding:75px 0}
-.section-title{text-align:center;margin-bottom:38px}
-.section-title span{color:#b48723;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:2px}
-.section-title h2{font-size:clamp(26px,4vw,36px);color:var(--dark);margin:7px 0}
-.section-title p{color:#687b72;font-size:14px}
-.about{background:var(--light)}
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center}
-.about-text h3{font-size:25px;color:var(--green);margin-bottom:14px}
-.about-text p{margin-bottom:14px;color:#52645c}
-.about-card{background:white;padding:30px;border-radius:18px;box-shadow:var(--shadow);border-top:5px solid var(--gold)}
-.about-card h3{color:var(--green);margin-bottom:12px}
-.about-card p{font-size:14px;color:#617168}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.pillar{background:white;padding:27px 22px;border-radius:15px;box-shadow:var(--shadow);text-align:center;border-bottom:3px solid var(--gold)}
-.pillar .emoji{font-size:35px;margin-bottom:12px}
-.pillar h3{color:var(--green);font-size:18px;margin-bottom:8px}
-.pillar p{font-size:13px;color:#68766f}
-.donate{background:linear-gradient(140deg,#063d32,#08785a);color:white}
-.donate .section-title h2{color:white}
-.donate .section-title p{color:#d4e9df}
-.donation-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.donation-card{background:white;color:var(--text);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
-.donation-card h3{color:var(--green);font-size:21px;margin-bottom:5px}
-.donation-card .sub{color:#77877f;font-size:12px;margin-bottom:20px}
-.detail{background:#f2f7f4;border-radius:9px;padding:12px 14px;margin:12px 0}
-.detail label{display:block;font-size:11px;color:#77877f;font-weight:700;text-transform:uppercase}
-.detail strong{display:block;color:#173e32;overflow-wrap:anywhere;font-size:14px;margin-top:3px}
-.copy-btn{background:var(--green);color:white;border:0;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:700;margin-top:8px}
-.copy-btn:hover{background:var(--dark)}
-.qr-area{text-align:center;padding:17px;background:#f5faf7;border-radius:12px;margin-top:15px}
-#qrcode{display:flex;justify-content:center;margin:12px auto}
-#qrcode img,#qrcode canvas{margin:auto;max-width:100%}
-.qr-area p{font-size:12px;color:#62736a}
-.notice{font-size:12px;color:#916b1b;background:#fff7df;border-radius:8px;padding:11px;margin-top:14px}
-.posts-section{background:#f7faf8}
-.posts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.post{background:white;padding:22px;border-radius:13px;box-shadow:var(--shadow);border-left:4px solid var(--gold)}
-.post h3{color:var(--green);margin-bottom:8px}
-.post p{font-size:14px;color:#5d6d65;white-space:pre-wrap;overflow-wrap:anywhere}
-.post small{display:block;color:#87958e;margin-top:12px;font-size:11px}
-.status{text-align:center;color:#687b72;padding:20px;font-size:14px;grid-column:1/-1}
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.contact-card{text-align:center;padding:23px;background:white;border-radius:13px;box-shadow:var(--shadow)}
-.contact-card .emoji{font-size:29px}
-.contact-card h3{color:var(--green);font-size:16px;margin:8px}
-.contact-card p{font-size:13px;overflow-wrap:anywhere;color:#64756c}
-.contact-card a{color:var(--green);font-weight:700;font-size:13px}
-.social{text-align:center;margin-top:32px}
-.social a{display:inline-block;margin:6px;background:var(--green);color:white;padding:11px 17px;border-radius:8px;font-size:13px;font-weight:700}
-.social a:hover{background:var(--gold);color:#183b2f}
-footer{background:#042e26;color:#dcebe4;padding:30px 0;text-align:center}
-footer strong{color:var(--gold)}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;color:#26352e;line-height:1.7;background:#fff}
+a{text-decoration:none}
+.container{width:92%;max-width:1100px;margin:auto}
+
+/* HEADER */
+header{background:linear-gradient(90deg,#063d32,#087b59);color:white;position:sticky;top:0;z-index:100}
+nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-size:19px;font-weight:bold;color:#ffd45a}
+.navlinks{display:flex;gap:13px;flex-wrap:wrap}
+.navlinks a{color:white;font-size:13px;font-weight:bold}
+.menu{display:none;background:#ffd45a;border:0;padding:8px 12px;border-radius:7px}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#063d32,#087d60,#16a085);color:white;text-align:center;padding:75px 15px}
+.hero h1{font-size:clamp(30px,6vw,50px);line-height:1.3}
+.hero h1 span{color:#ffd45a}
+.hero p{max-width:720px;margin:17px auto;color:#e8fff5}
+.tag{color:#ffd45a;font-weight:bold;letter-spacing:3px}
+.btn{display:inline-block;background:#ffd45a;color:#153c2d;padding:12px 22px;border-radius:9px;font-weight:bold;margin:8px}
+.btn2{background:white;color:#075b46}
+
+/* COMMON */
+section{padding:52px 0}
+.heading{text-align:center;margin-bottom:28px}
+.heading h2{font-size:28px;color:#087457}
+.heading p{color:#66776d;font-size:14px}
+.color-title{background:linear-gradient(90deg,#e74c3c,#e6a52d,#168b65,#357bd0);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ABOUT */
+.about{background:linear-gradient(120deg,#fff5e7,#e6fff3)}
+.about-card{background:white;padding:25px;border-radius:15px;border-left:5px solid #e8b93e;box-shadow:0 5px 20px #0001}
+.about-card p{margin:9px 0}
+
+/* MISSION */
+.mission{background:linear-gradient(130deg,#edf7ff,#f5edff)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{padding:23px;border-radius:14px;background:white;text-align:center;box-shadow:0 5px 18px #0001;border-bottom:4px solid #20a47c}
+.card:nth-child(2){border-color:#e9a32e}
+.card:nth-child(3){border-color:#e35c68}
+.card:nth-child(4){border-color:#438bd8}
+.card h3{color:#087457}
+.emoji{font-size:34px}
+
+/* DONATION PROGRESS */
+.category-funds{background:linear-gradient(135deg,#effff5,#edf4ff)}
+.fund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.fund-card{background:white;padding:22px;border-radius:14px;box-shadow:0 5px 18px #0001;text-align:center}
+.fund-card h3{color:#087457;font-size:18px}
+.fund-amount{font-size:30px;font-weight:bold;color:#e14a43}
+.fund-percent{font-size:25px;font-weight:bold;color:#087457}
+.progress-track{background:#e4e9e6;height:13px;border-radius:20px;overflow:hidden;margin:12px 0}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#087457,#36bd85);border-radius:20px;transition:width .4s}
+.fund-card p{font-size:13px;color:#65756b}
+.fund-button{background:#087457;color:white;border:0;padding:10px 14px;border-radius:7px;font-weight:bold;margin-top:12px;cursor:pointer}
+.target-note{background:#fff3d2;padding:14px;border-radius:9px;margin-top:20px;text-align:center;font-size:13px}
+
+/* REGISTRATION */
+.registration{background:linear-gradient(130deg,#fff0e8,#fff8d9)}
+.registration-box{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px #0001;text-align:center}
+.registration-box h3{color:#d34b42;margin-bottom:12px}
+.amount{font-size:35px;font-weight:900;color:#e14a43}
+.registration-box p{margin:10px 0}
+.notice{font-size:12px;color:#865e16;background:#fff3d2;padding:12px;border-radius:8px;margin-top:12px}
+
+/* UPDATES */
+.updates{background:linear-gradient(130deg,#e9f8ff,#f0edff)}
+.posts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.post{background:white;padding:20px;border-radius:13px;border-left:5px solid #e8b93e;box-shadow:0 4px 15px #0001;overflow-wrap:anywhere}
+.post h3{color:#087457;margin-bottom:8px}
+.post p{white-space:pre-wrap;font-size:14px}
+.post small{color:#78877e;display:block;margin-top:10px}
+.status{text-align:center;color:#68776f;padding:15px;grid-column:1/-1}
+
+/* DONATE */
+.donate{background:linear-gradient(135deg,#063d32,#087b59);color:white}
+.donate .heading h2{color:#ffd45a}
+.donate .heading p{color:#e6fff5}
+.donation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.donation-card{background:white;color:#26352e;border-radius:15px;padding:23px;box-shadow:0 5px 20px #0002}
+.donation-card h3{color:#087457;margin-bottom:8px}
+.detail{background:#eff8f2;padding:12px;border-radius:9px;margin:12px 0}
+.detail label{display:block;font-size:11px;color:#718078;font-weight:bold}
+.detail strong{display:block;overflow-wrap:anywhere;color:#174c38;font-size:14px}
+.copy{background:#e53935;color:white;border:0;padding:9px 13px;border-radius:7px;font-weight:bold;margin-top:8px;cursor:pointer}
+.qr-area{text-align:center;background:#f1f8f4;padding:17px;border-radius:10px;margin-top:12px}
+#qrcode{display:flex;justify-content:center;margin:15px auto;min-height:10px}
+#qrcode img{margin:auto}
+.small-note{font-size:12px;color:#6b776f;margin-top:8px}
+
+/* CONTACT */
+.contact{background:linear-gradient(120deg,#e7f9ff,#fff1f7)}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.contact-card{background:white;padding:20px;text-align:center;border-radius:13px;box-shadow:0 4px 16px #0001}
+.contact-card h3{color:#087457}
+.contact-card a{color:#e34b43;font-weight:bold;overflow-wrap:anywhere}
+.contact-card p{font-size:13px;overflow-wrap:anywhere}
+.social{text-align:center;margin-top:25px}
+.social a{display:inline-block;background:#087457;color:white;padding:11px 17px;border-radius:8px;margin:5px;font-size:13px;font-weight:bold}
+.social a:nth-child(2){background:#1676c5}
+.social a:nth-child(3){background:#e44b43}
+
+/* FOOTER */
+footer{background:#042e26;color:white;text-align:center;padding:27px 10px}
+footer strong{color:#ffd45a}
 footer p{font-size:12px;margin:5px}
-.top-btn{position:fixed;bottom:18px;right:18px;background:var(--gold);color:#173b30;border:0;width:43px;height:43px;border-radius:50%;font-size:20px;box-shadow:var(--shadow);z-index:50}
-@media(max-width:800px){
- .menu-btn{display:block}
- .navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:var(--dark);padding:20px;flex-direction:column;align-items:flex-start;gap:17px}
- .navlinks.open{display:flex}
- .about-grid,.donation-grid{grid-template-columns:1fr}
- .pillars{grid-template-columns:1fr}
- .contact-grid{grid-template-columns:1fr}
- .hero{padding:75px 0}
+.top{position:fixed;bottom:15px;right:15px;border:0;border-radius:50%;background:#ffd45a;padding:12px 16px;font-size:20px;cursor:pointer}
+
+@media(max-width:700px){
+.menu{display:block}
+.navlinks{display:none;width:100%;flex-direction:column;padding:15px 0}
+.navlinks.open{display:flex}
+.fund-grid{grid-template-columns:1fr}
 }
-@media(max-width:550px){
- .brand{font-size:14px}
- .logo{width:39px;height:39px}
- .posts-grid{grid-template-columns:1fr}
- .hero p{font-size:14px}
- section{padding:58px 0}
- .donation-card{padding:21px}
- .btn{padding:12px 17px;font-size:12px}
+@media(max-width:650px){
+.cards,.posts,.donation-grid,.contact-grid{grid-template-columns:1fr}
+.hero{padding:55px 12px}
+section{padding:42px 0}
+.brand{font-size:15px}
+.heading h2{font-size:25px}
 }
 </style>
 </head>
@@ -127,247 +138,353 @@ footer p{font-size:12px;margin:5px}
 <body>
 
 <header>
-  <div class="container navbar">
-    <a href="#home" class="brand">
-      <span class="logo">K</span>
-      <span>King Welfare Foundation</span>
-    </a>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
-
-    <nav class="navlinks" id="navlinks">
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#mission">Our Mission</a>
-      <a href="#updates">Updates</a>
-      <a href="#donate">Donate</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+<div class="container">
+<nav>
+<a class="brand" href="#home">👑 King Welfare Foundation</a>
+<button class="menu" id="menuBtn" type="button">☰ Menu</button>
+<div class="navlinks" id="navlinks">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#mission">Mission</a>
+<a href="#categoryFunds">Donation Progress</a>
+<a href="#updates">Latest Updates</a>
+<a href="#donate">Donate</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</div>
 </header>
 
-<main>
+<!-- HOME -->
 <section class="hero" id="home">
-  <div class="container hero-content">
-    <span class="tag">HUMANITY FIRST</span>
-    <h1>Serving Humanity<br><span>Is Our Mission</span></h1>
-    <p>
-      Welcome to King Welfare Foundation. We believe in kindness,
-      compassion and helping people in need. Together, we can make
-      a positive difference in our communities.
-    </p>
-    <a href="#donate" class="btn btn-gold">Donate Now ♥</a>
-    <a href="#about" class="btn btn-outline">Learn More</a>
-  </div>
+<div class="container">
+<div class="tag">HUMANITY FIRST</div>
+<h1>Serving Humanity<br><span>Is Our Mission ❤️</span></h1>
+<p>Helping orphan children, poor families, widows and persons with disabilities. Together we can bring hope, kindness and support to people in need.</p>
+<a class="btn" href="#donate">Donate Now ❤️</a>
+<a class="btn btn2" href="#about">Learn More</a>
+</div>
 </section>
 
+<!-- ABOUT -->
 <section class="about" id="about">
-  <div class="container">
-    <div class="section-title">
-      <span>Who We Are</span>
-      <h2>About Our Foundation</h2>
-      <p>Humanity First — Serving Humanity Is Our Mission.</p>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-text">
-        <h3>Welcome to King Welfare Foundation</h3>
-        <p>
-          King Welfare Foundation is committed to serving humanity
-          and supporting people who need help. We believe that every
-          person deserves dignity, care and compassion.
-        </p>
-        <p>
-          Our aim is to encourage kindness, support welfare activities
-          and bring people together for positive community service.
-        </p>
-        <p><strong>Our slogan:</strong> Humanity First.</p>
-      </div>
-
-      <div class="about-card">
-        <h3>Foundation Information</h3>
-        <p><strong>Organization:</strong> King Welfare Foundation</p>
-        <p><strong>Founder:</strong> Habib Ullah</p>
-        <p><strong>Location:</strong> Loralai, Balochistan, Pakistan</p>
-        <p><strong>Mission:</strong> Serving Humanity</p>
-        <p><strong>Email:</strong> kingwelfarefoundation@gmail.com</p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="heading">
+<h2 class="color-title">About King Welfare Foundation</h2>
+<p>Humanity First — Serving Humanity Is Our Mission</p>
+</div>
+<div class="about-card">
+<p><b>Organization:</b> King Welfare Foundation</p>
+<p><b>Founder:</b> Habib Ullah</p>
+<p><b>Location:</b> Loralai, Balochistan, Pakistan</p>
+<p><b>Email:</b> kingwelfarefoundation@gmail.com</p>
+<p>Our mission is to help orphan children, poor families, widows and persons with disabilities through food, education, healthcare and essential support.</p>
+<p>We appeal to kind-hearted people in Pakistan and around the world to join us in serving humanity for the sake of Allah.</p>
+</div>
+</div>
 </section>
 
-<section id="mission">
-  <div class="container">
-    <div class="section-title">
-      <span>What We Believe</span>
-      <h2>Our Mission & Values</h2>
-      <p>Small acts of kindness can create a better world.</p>
-    </div>
-
-    <div class="pillars">
-      <div class="pillar">
-        <div class="emoji">❤️</div>
-        <h3>Humanity First</h3>
-        <p>Respecting human dignity and supporting people with compassion.</p>
-      </div>
-      <div class="pillar">
-        <div class="emoji">🤝</div>
-        <h3>Community Support</h3>
-        <p>Encouraging people to help one another and strengthen communities.</p>
-      </div>
-      <div class="pillar">
-        <div class="emoji">🌱</div>
-        <h3>Hope for Tomorrow</h3>
-        <p>Working towards a kinder and more supportive future.</p>
-      </div>
-    </div>
-  </div>
+<!-- MISSION -->
+<section class="mission" id="mission">
+<div class="container">
+<div class="heading">
+<h2 class="color-title">Our Mission</h2>
+<p>Every human being deserves dignity, care and hope.</p>
+</div>
+<div class="cards">
+<div class="card"><div class="emoji">👶</div><h3>Orphan Children</h3><p>Supporting children who have lost their parents.</p></div>
+<div class="card"><div class="emoji">🏠</div><h3>Poor Families</h3><p>Helping deserving families with food and essential needs.</p></div>
+<div class="card"><div class="emoji">🤲</div><h3>Widows</h3><p>Supporting widows with dignity and compassion.</p></div>
+<div class="card"><div class="emoji">♿</div><h3>Persons with Disabilities</h3><p>Helping people with disabilities and special needs.</p></div>
+</div>
+</div>
 </section>
 
-<section class="posts-section" id="updates">
-  <div class="container">
-    <div class="section-title">
-      <span>Latest News</span>
-      <h2>Foundation Updates</h2>
-      <p>Latest published announcements and updates.</p>
-    </div>
-    <div id="posts" class="posts-grid">
-      <div class="status">Loading foundation updates...</div>
-    </div>
-    <p id="postsStatus" class="status" aria-live="polite"></p>
-  </div>
+<!-- DONATION TARGETS AND PERCENTAGES -->
+<section class="category-funds" id="categoryFunds">
+<div class="container">
+<div class="heading">
+<h2 class="color-title">Category Donation Progress</h2>
+<p>Choose a category and support people in need.</p>
+</div>
+
+<div class="fund-grid">
+
+<div class="fund-card">
+<div class="emoji">👶</div>
+<h3>Orphan Children</h3>
+<div class="fund-amount">$850</div>
+<p>Fundraising Target</p>
+<div class="progress-track"><div class="progress-fill" id="orphanBar"></div></div>
+<div class="fund-percent" id="orphanPercent">0%</div>
+<p id="orphanCollected">Collected: $0</p>
+<button class="fund-button" onclick="selectDonation('orphans')">Donate for Orphans</button>
+</div>
+
+<div class="fund-card">
+<div class="emoji">🏠</div>
+<h3>Poor Families</h3>
+<div class="fund-amount">$1,000</div>
+<p>Fundraising Target</p>
+<div class="progress-track"><div class="progress-fill" id="poorBar"></div></div>
+<div class="fund-percent" id="poorPercent">0%</div>
+<p id="poorCollected">Collected: $0</p>
+<button class="fund-button" onclick="selectDonation('poor')">Donate for Poor Families</button>
+</div>
+
+<div class="fund-card">
+<div class="emoji">♿</div>
+<h3>Persons with Disabilities</h3>
+<div class="fund-amount">$750</div>
+<p>Fundraising Target</p>
+<div class="progress-track"><div class="progress-fill" id="disabledBar"></div></div>
+<div class="fund-percent" id="disabledPercent">0%</div>
+<p id="disabledCollected">Collected: $0</p>
+<button class="fund-button" onclick="selectDonation('disabled')">Donate for Disabled</button>
+</div>
+
+</div>
+
+<div class="target-note">
+<strong>Important:</strong> These are fundraising targets for each category, not guaranteed payments to each individual. Progress updates after donations are received and confirmed.
+</div>
+</div>
 </section>
 
+<!-- REGISTRATION APPEAL -->
+<section class="registration" id="registration">
+<div class="container">
+<div class="heading">
+<h2 class="color-title">Help Us Register Our Foundation</h2>
+</div>
+<div class="registration-box">
+<h3>A Humble Appeal for Registration Support</h3>
+<p>King Welfare Foundation is currently <b>NOT REGISTERED</b>. We are working towards official registration so that we can build a more organized welfare initiative.</p>
+<p>Our estimated fundraising target for A Category registration is:</p>
+<div class="amount">PKR 100,000</div>
+<p>We humbly request generous people, overseas Pakistanis and supporters to help us reach this target.</p>
+<p>Your support will help us take an important step towards establishing our welfare foundation.</p>
+<p><b>Transparency:</b> We will share available donation and expense records with supporters.</p>
+<p><b>Founder: Habib Ullah</b></p>
+<a class="btn" href="#donate">Support Registration ❤️</a>
+<div class="notice">
+<strong>Important:</strong> The foundation is not yet registered. Donations are currently received through the founder's personal bank account and wallet, not an official foundation account. Please verify details and contact us before donating. The registration amount is an estimate, not an official fee quotation or guarantee of approval.
+</div>
+</div>
+</div>
+</section>
+
+<!-- FIREBASE LATEST POSTS -->
+<section class="updates" id="updates">
+<div class="container">
+<div class="heading">
+<h2 class="color-title">Latest Foundation Updates</h2>
+<p>News, announcements and welfare activities</p>
+</div>
+<div class="posts" id="posts">
+<div class="status">Loading latest updates...</div>
+</div>
+<p class="status" id="postsStatus"></p>
+</div>
+</section>
+
+<!-- DONATION DETAILS -->
 <section class="donate" id="donate">
-  <div class="container">
-    <div class="section-title">
-      <span>Support Our Mission</span>
-      <h2>Make a Donation</h2>
-      <p>Your support can help us serve humanity.</p>
-    </div>
+<div class="container">
+<div class="heading">
+<h2>❤️ Support Our Mission</h2>
+<p>Your donation can bring hope to someone in need.</p>
+</div>
 
-    <div class="donation-grid">
+<div class="donation-grid">
 
-      <div class="donation-card">
-        <h3>🏦 Bank Transfer</h3>
-        <p class="sub">Send your contribution through bank transfer.</p>
+<div class="donation-card">
+<h3>🏦 Bank Donation</h3>
+<p>You can support our welfare work through bank transfer.</p>
 
-        <div class="detail">
-          <label>Account Title</label>
-          <strong id="accountTitle">Habib Ullah</strong>
-          <button class="copy-btn" data-copy="accountTitle">Copy Account Title</button>
-        </div>
+<div class="detail">
+<label>Bank Name</label>
+<strong>Meezan Bank</strong>
+</div>
 
-        <div class="detail">
-          <label>Bank</label>
-          <strong>Meezan Bank</strong>
-        </div>
+<div class="detail">
+<label>Account Title</label>
+<strong>Habib Ullah</strong>
+</div>
 
-        <div class="detail">
-          <label>IBAN</label>
-          <strong id="iban">PK61MEZN0090010107506561</strong>
-          <button class="copy-btn" data-copy="iban">Copy IBAN</button>
-        </div>
+<div class="detail">
+<label>IBAN</label>
+<strong id="bankIban">PK61MEZN0090010107506561</strong>
+<button class="copy" onclick="copyText('bankIban')">Copy IBAN</button>
+</div>
 
-        <p class="notice">
-          Please verify the account title and IBAN before sending money.
-          Keep your transaction receipt.
-        </p>
-      </div>
+<p class="small-note">Please contact us on WhatsApp after making a donation so we can confirm the payment.</p>
+</div>
 
-      <div class="donation-card">
-        <h3>₮ USDT TRC20 Donation</h3>
-        <p class="sub">Donate using the TRON (TRC20) network.</p>
+<div class="donation-card">
+<h3>₿ USDT Donation (TRC20)</h3>
+<p>International supporters can contact us about USDT donations.</p>
 
-        <div class="detail">
-          <label>USDT TRC20 Wallet Address</label>
-          <strong id="walletAddress">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</strong>
-          <button class="copy-btn" data-copy="walletAddress">Copy Wallet Address</button>
-        </div>
+<div class="detail">
+<label>Network</label>
+<strong>TRON (TRC20) — USDT</strong>
+</div>
 
-        <div class="qr-area">
-          <strong>Scan to view wallet address</strong>
-          <div id="qrcode"></div>
-          <p>Network: TRON (TRC20)</p>
-        </div>
+<div class="detail">
+<label>Wallet Address</label>
+<strong id="usdtAddress">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</strong>
+<button class="copy" onclick="copyText('usdtAddress')">Copy Wallet Address</button>
+</div>
 
-        <p class="notice">
-          Important: Select the TRC20 network when transferring USDT.
-          Sending through another network may result in loss of funds.
-        </p>
-      </div>
+<div class="qr-area">
+<strong>USDT TRC20 Wallet QR Code</strong>
+<div id="qrcode"></div>
+<p class="small-note">Scan this QR code to copy or enter the wallet address in your wallet app.</p>
+</div>
 
-    </div>
-  </div>
+<p class="notice">Important: Verify the wallet address and TRC20 network carefully before sending. The wallet is provided as a donation contact method and is not an official foundation account. Consider testing with a small transfer first.</p>
+</div>
+
+</div>
+
+<div class="notice" style="margin-top:20px">
+<strong>Donation Transparency:</strong> We will maintain records of received donations and welfare expenses and share appropriate updates with supporters. Photos or videos of beneficiaries will only be shared with their permission and with respect for their dignity.
+</div>
+</div>
 </section>
 
-<section id="contact">
-  <div class="container">
-    <div class="section-title">
-      <span>Get In Touch</span>
-      <h2>Contact Our Foundation</h2>
-      <p>Connect with King Welfare Foundation.</p>
-    </div>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="heading">
+<h2 class="color-title">Contact Us</h2>
+<p>For donations, questions and partnership inquiries</p>
+</div>
 
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="emoji">📧</div>
-        <h3>Email</h3>
-        <p>kingwelfarefoundation@gmail.com</p>
-        <a href="mailto:kingwelfarefoundation@gmail.com">Send Email</a>
-      </div>
+<div class="contact-grid">
 
-      <div class="contact-card">
-        <div class="emoji">📱</div>
-        <h3>WhatsApp</h3>
-        <p>+92 335 2253097</p>
-        <a href="https://wa.me/923352253097" target="_blank" rel="noopener">Chat on WhatsApp</a>
-      </div>
+<div class="contact-card">
+<h3>📧 Email</h3>
+<p><a href="mailto:kingwelfarefoundation@gmail.com">kingwelfarefoundation@gmail.com</a></p>
+</div>
 
-      <div class="contact-card">
-        <div class="emoji">📍</div>
-        <h3>Location</h3>
-        <p>Loralai, Balochistan, Pakistan</p>
-      </div>
-    </div>
+<div class="contact-card">
+<h3>📱 WhatsApp</h3>
+<p><a href="https://wa.me/923352253097" target="_blank">+92 335 2253097</a></p>
+</div>
 
-    <div class="social">
-      <a href="https://www.facebook.com/share/1F9yd3f7HX/" target="_blank" rel="noopener">Facebook Page</a>
-      <a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank" rel="noopener">WhatsApp Channel</a>
-      <a href="mailto:kingwelfarefoundation@gmail.com">Email Us</a>
-    </div>
-  </div>
+<div class="contact-card">
+<h3>📍 Location</h3>
+<p>Loralai, Balochistan, Pakistan</p>
+</div>
+
+<div class="contact-card">
+<h3>🌍 WhatsApp Channel</h3>
+<p><a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">Follow Foundation Updates</a></p>
+</div>
+
+</div>
+
+<div class="social">
+<a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">WhatsApp Channel</a>
+<a href="https://www.facebook.com/share/1F9yd3f7HX/" target="_blank">Facebook Page</a>
+<a href="https://wa.me/923352253097" target="_blank">Contact on WhatsApp</a>
+</div>
+</div>
 </section>
-</main>
 
 <footer>
-  <div class="container">
-    <strong>King Welfare Foundation</strong>
-    <p>Humanity First — Serving Humanity Is Our Mission.</p>
-    <p>Loralai, Balochistan, Pakistan</p>
-    <p>© <span id="year"></span> King Welfare Foundation. All Rights Reserved.</p>
-  </div>
+<p><strong>👑 King Welfare Foundation</strong></p>
+<p>Humanity First — Serving Humanity Is Our Mission.</p>
+<p>Loralai, Balochistan, Pakistan</p>
+<p>Founder: Habib Ullah</p>
+<p>© <span id="year"></span> King Welfare Foundation. All Rights Reserved.</p>
+<p>Currently an unregistered welfare initiative.</p>
 </footer>
 
-<button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
+<!-- NORMAL JAVASCRIPT -->
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("menuBtn").addEventListener("click",function(){
+  document.getElementById("navlinks").classList.toggle("open");
+});
+
+document.querySelectorAll(".navlinks a").forEach(function(link){
+  link.addEventListener("click",function(){
+    document.getElementById("navlinks").classList.remove("open");
+  });
+});
+
+function copyText(elementId){
+  const text=document.getElementById(elementId).textContent.trim();
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(function(){
+      alert("Copied successfully!");
+    }).catch(function(){
+      alert("Copy failed. Please copy manually.");
+    });
+  }else{
+    const field=document.createElement("textarea");
+    field.value=text;
+    document.body.appendChild(field);
+    field.select();
+    try{
+      document.execCommand("copy");
+      alert("Copied successfully!");
+    }catch(e){
+      alert("Please copy manually.");
+    }
+    field.remove();
+  }
+}
+
+function selectDonation(category){
+  const names={
+    orphans:"Orphan Children",
+    poor:"Poor Families",
+    disabled:"Persons with Disabilities"
+  };
+
+  const message="I want to donate for "+names[category]+
+  " under King Welfare Foundation. Please share payment instructions.";
+
+  window.open(
+    "https://wa.me/923352253097?text="+encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+/* Generate USDT QR */
+window.addEventListener("load",function(){
+  const qrBox=document.getElementById("qrcode");
+  if(window.QRCode && qrBox){
+    new QRCode(qrBox,{
+      text:"TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF",
+      width:170,
+      height:170,
+      correctLevel:QRCode.CorrectLevel.M
+    });
+  }
+});
+</script>
+
+<!-- FIREBASE -->
 <script type="module">
 import { initializeApp }
-  from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-
-import {
-  getAnalytics,
-  logEvent,
-  isSupported
-} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-analytics.js";
+from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 
 import {
   getFirestore,
   collection,
-  onSnapshot
-} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+  onSnapshot,
+  doc
+}
+from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-// FIREBASE CONFIGURATION
+/* YOUR FIREBASE PROJECT CONFIG */
 const firebaseConfig = {
   apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
   authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
@@ -378,250 +495,107 @@ const firebaseConfig = {
   measurementId: "G-SJP0K2HDGW"
 };
 
-// INITIALIZE FIREBASE
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// GOOGLE ANALYTICS
-let analytics = null;
-
-const analyticsReady = (async () => {
-  try {
-    if (await isSupported()) {
-      analytics = getAnalytics(app);
-
-      // Custom visit event. Firebase handles the standard page_view.
-      logEvent(analytics, "website_visit", {
-        page_path: location.pathname,
-        page_title: document.title
-      });
-
-      console.log("King Welfare Analytics Connected");
-    }
-  } catch (error) {
-    console.error("Analytics error:", error);
-  }
-})();
-
-async function trackEvent(eventName, details = {}) {
-  await analyticsReady;
-
-  if (!analytics) return;
-
-  try {
-    logEvent(analytics, eventName, details);
-  } catch (error) {
-    console.error("Tracking error:", error);
-  }
-}
-
-// MOBILE NAVIGATION
-const menuBtn = document.getElementById("menuBtn");
-const navlinks = document.getElementById("navlinks");
-
-if (menuBtn && navlinks) {
-  menuBtn.addEventListener("click", () => {
-    navlinks.classList.toggle("open");
-  });
-
-  navlinks.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navlinks.classList.remove("open");
-    });
-  });
-}
-
-// COPY BUTTONS
-document.querySelectorAll("[data-copy]").forEach(button => {
-  button.addEventListener("click", async function() {
-    const element = document.getElementById(
-      this.getAttribute("data-copy")
-    );
-
-    if (!element) return;
-
-    const value = element.innerText.trim();
-
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(value);
-      } else {
-        const temp = document.createElement("textarea");
-        temp.value = value;
-        temp.style.position = "fixed";
-        temp.style.opacity = "0";
-        document.body.appendChild(temp);
-        temp.select();
-
-        const copied = document.execCommand("copy");
-        temp.remove();
-
-        if (!copied) throw new Error("Copy failed");
-      }
-
-      const oldText = this.innerText;
-      this.innerText = "Copied!";
-
-      setTimeout(() => {
-        this.innerText = oldText;
-      }, 1800);
-
-      trackEvent("donation_details_copy", {
-        copied_field: element.id
-      });
-
-    } catch (error) {
-      alert("Copy failed. Please select and copy manually.");
-      console.error(error);
-    }
-  });
-});
-
-// USDT TRC20 QR CODE
-const walletAddress = "TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF";
-const qrContainer = document.getElementById("qrcode");
-
-if (qrContainer) {
-  if (typeof QRCode !== "undefined") {
-    new QRCode(qrContainer, {
-      text: walletAddress,
-      width: 180,
-      height: 180,
-      colorDark: "#075b46",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
-    });
-  } else {
-    qrContainer.innerText = "QR code could not load.";
-  }
-}
-
-// DONATION SECTION TRACKING
-const donationSection = document.getElementById("donate");
-
-if (donationSection && "IntersectionObserver" in window) {
-  const donationObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        trackEvent("donation_page_view", {
-          page_path: location.pathname
-        });
-        donationObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.35 });
-
-  donationObserver.observe(donationSection);
-}
-
-// DONATE BUTTON TRACKING
-document.addEventListener("click", event => {
-  const button = event.target.closest("a, button");
-  if (!button) return;
-
-  const text = (
-    button.innerText ||
-    button.getAttribute("aria-label") ||
-    ""
-  ).toLowerCase();
-
-  const href = (button.getAttribute("href") || "").toLowerCase();
-
-  if (/donate|donation|contribute/.test(text + " " + href)) {
-    trackEvent("donate_click", {
-      button_text: text.substring(0, 100),
-      page_path: location.pathname
-    });
-  }
-});
-
-// FIRESTORE FOUNDATION UPDATES
-const postsContainer = document.getElementById("posts");
+/* LOAD PUBLISHED FOUNDATION POSTS */
+const postsBox = document.getElementById("posts");
 const postsStatus = document.getElementById("postsStatus");
 
-function showMessage(message) {
-  if (postsStatus) postsStatus.textContent = message;
-} no
+onSnapshot(
+  collection(db,"posts"),
+  snapshot => {
+    postsBox.innerHTML = "";
 
-function renderPosts(snapshot) {
-  if (!postsContainer) return;
+    const publishedPosts = snapshot.docs
+      .map(item => ({id:item.id,...item.data()}))
+      .filter(post => post.status === "published");
 
-  postsContainer.innerHTML = "";
-
-  const publishedPosts = snapshot.docs
-    .map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }))
-    .filter(post =>
-      String(post.status || "").toLowerCase() === "published"
-    )
-    .sort((a, b) => {
-      const dateA = a.createdAt?.toMillis?.() || 0;
-      const dateB = b.createdAt?.toMillis?.() || 0;
-      return dateB - dateA;
+    publishedPosts.sort((a,b) => {
+      const dateA = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0;
+      const dateB = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0;
+      return dateB-dateA;
     });
 
-
-if (publishedPosts.length === 0) {
-  const empty = document.createElement("div");
-  empty.className = "status";
-  empty.textContent = "No foundation updates published yet.";
-  postsContainer.appendChild(empty);
-  return;
-}
-
-publishedPosts.forEach(post => {
-  const article = document.createElement("article");
-  article.className = "post";
-
-  const heading = document.createElement("h3");
-  heading.textContent = post.title || "Foundation Update";
-
-  const paragraph = document.createElement("p");
-  paragraph.textContent = post.content || "";
-
-  article.appendChild(heading);
-  article.appendChild(paragraph);
-
-  if (post.createdAt?.toDate) {
-    const date = document.createElement("small");
-    date.textContent = post.createdAt.toDate().toLocaleDateString();
-    article.appendChild(date);
-  }
-
-  postsContainer.appendChild(article);
-});
-
-// LIVE FIRESTORE UPDATES
-onSnapshot(
-  collection(db, "posts"),
-  snapshot => {
-    renderPosts(snapshot);
-    showMessage("Foundation updates are live.");
-  },
-  error => {
-    console.error("Firestore error:", error);
-
-    if (postsContainer) {
-      postsContainer.innerHTML = "";
-      const message = document.createElement("div");
-      message.className = "status";
-      message.textContent =
-        "Unable to load updates. Please try again later.";
-      postsContainer.appendChild(message);
+    if(publishedPosts.length === 0){
+      postsBox.innerHTML =
+        '<div class="status">No updates published yet. Please visit again.</div>';
+      postsStatus.textContent = "";
+      return;
     }
 
-    showMessage("Updates connection failed.");
+    publishedPosts.forEach(post => {
+      const article = document.createElement("article");
+      article.className = "post";
+
+      const title = document.createElement("h3");
+      title.textContent = post.title || "Foundation Update";
+
+      const content = document.createElement("p");
+      content.textContent = post.content || post.message || "";
+
+      article.appendChild(title);
+      article.appendChild(content);
+
+      if(post.createdAt && post.createdAt.toDate){
+        const date = document.createElement("small");
+        date.textContent = post.createdAt.toDate().toLocaleDateString();
+        article.appendChild(date);
+      }
+
+      postsBox.appendChild(article);
+    });
+
+    postsStatus.textContent = "";
+  },
+  error => {
+    console.error("Posts error:",error);
+    postsBox.innerHTML =
+      '<div class="status">Updates are temporarily unavailable.</div>';
   }
 );
 
-// FOOTER YEAR
-const yearElement = document.getElementById("year");
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
-  
+/* DONATION CATEGORY TARGETS */
+const targets = {
+  orphans:850,
+  poor:1000,
+  disabled:750
+};
+
+const fundElements = {
+  orphans:["orphanBar","orphanPercent","orphanCollected"],
+  poor:["poorBar","poorPercent","poorCollected"],
+  disabled:["disabledBar","disabledPercent","disabledCollected"]
+};
+
+/* READ CONFIRMED DONATION TOTALS FROM FIRESTORE */
+onSnapshot(
+  doc(db,"settings","donationProgress"),
+  snapshot => {
+    const data = snapshot.exists() ? snapshot.data() : {};
+
+    Object.keys(targets).forEach(category => {
+      const rawAmount = Number(data[category] || 0);
+      const collected = Number.isFinite(rawAmount) ? Math.max(0,rawAmount) : 0;
+
+      const percentage = Math.min(
+        100,
+        Math.round((collected / targets[category]) * 100)
+      );
+
+      const [barId,percentId,amountId] = fundElements[category];
+
+      document.getElementById(barId).style.width = percentage + "%";
+      document.getElementById(percentId).textContent = percentage + "%";
+      document.getElementById(amountId).textContent =
+        "Collected: $" + collected.toLocaleString("en-US");
+    });
+  },
+  error => {
+    console.error("Donation progress error:",error);
+  }
+);
 </script>
+
 </body>
 </html>
