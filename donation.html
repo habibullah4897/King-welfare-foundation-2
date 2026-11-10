@@ -4,216 +4,504 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Donate to King Welfare Foundation, Loralai, Balochistan, Pakistan.">
-<title>Donate | King Welfare Foundation</title>
+<meta name="description" content="Donate to King Welfare Foundation to support orphan children, poor families and persons with disabilities in Loralai, Balochistan.">
+<title>Donate - King Welfare Foundation</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f1f7f2;color:#26352a;line-height:1.6}
-header{background:#075b35;color:white;text-align:center;padding:25px 15px}
-header h1{margin:0;font-size:27px}
-.container{max-width:850px;margin:25px auto;padding:0 14px}
-.card{background:white;padding:20px;margin-bottom:18px;border-radius:13px;box-shadow:0 3px 12px #00000012}
-h2{color:#075b35;margin-top:0}
-.progress{height:17px;background:#e4e9e5;border-radius:20px;overflow:hidden;margin:12px 0}
-.bar{height:100%;width:0%;background:#159653;transition:width .5s}
-.percent{font-size:22px;font-weight:bold;color:#08743e}
-button,.donate{display:inline-block;border:0;padding:11px 17px;border-radius:7px;background:#08783e;color:white;font-size:15px;text-decoration:none;cursor:pointer;margin-top:8px}
-.copy{background:#c62828}
-.notice{background:#fff4df;border-left:5px solid #e4a02b}
-.contact a{color:#08783e}
-.status{font-size:14px;color:#555;overflow-wrap:anywhere}
-footer{background:#075b35;color:white;text-align:center;padding:20px 12px}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+  color: #202b3c;
+  line-height: 1.6;
+}
+
+header {
+  background: #123b65;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin: 8px 0 0;
+}
+
+.container {
+  width: 92%;
+  max-width: 850px;
+  margin: 25px auto;
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.07);
+}
+
+h2 {
+  color: #123b65;
+  margin-top: 0;
+}
+
+.category {
+  margin: 22px 0;
+}
+
+.category h3 {
+  margin-bottom: 5px;
+}
+
+.target {
+  color: #58677a;
+  font-size: 14px;
+}
+
+.progress-track {
+  height: 17px;
+  background: #e5eaf0;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #16865b;
+  border-radius: 20px;
+  transition: width .5s ease;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.amount {
+  color: #16865b;
+}
+
+.info {
+  background: #fff8e8;
+  border-left: 4px solid #e5a52d;
+  padding: 13px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.copy-row {
+  background: #f1f4f8;
+  padding: 12px;
+  border-radius: 7px;
+  overflow-wrap: anywhere;
+  margin: 10px 0;
+}
+
+button, .whatsapp {
+  display: inline-block;
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 17px;
+  background: #123b65;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.whatsapp {
+  background: #16865b;
+}
+
+#firebaseStatus {
+  font-size: 14px;
+  padding: 10px;
+  background: #f1f4f8;
+  border-radius: 7px;
+}
+
+#qrCode {
+  margin: 15px 0;
+}
+
+#qrCode img, #qrCode canvas {
+  max-width: 190px;
+}
+
+footer {
+  background: #123b65;
+  color: white;
+  text-align: center;
+  padding: 20px 12px;
+  font-size: 14px;
+}
+
+footer a {
+  color: white;
+}
+
+@media(max-width: 500px) {
+  header h1 {
+    font-size: 23px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .progress-info {
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>King Welfare Foundation</h1>
-<p>Humanity First — Serving Humanity Is Our Mission</p>
-<p>Loralai, Balochistan, Pakistan</p>
+  <h1>King Welfare Foundation</h1>
+  <p>Humanity First — Serving Humanity Is Our Mission</p>
+  <p>Loralai, Balochistan, Pakistan</p>
 </header>
 
 <main class="container">
 
-<section class="card">
-<h2>Support Our Mission</h2>
-<p>Your donation can help orphan children, poor families, widows and persons with disabilities.</p>
-<p>Every contribution makes a difference.</p>
-</section>
+  <section class="card">
+    <h2>Donation Progress</h2>
+    <p>Help us support deserving people. Our donation progress is updated from Firebase.</p>
 
-<section class="card">
-<h2>Orphan Children Fund</h2>
-<p>Target: <strong>$850</strong></p>
-<div class="progress"><div class="bar" id="orphanBar"></div></div>
-<div class="percent" id="orphanPercent">0%</div>
-<p id="orphanCollected">Collected: $0</p>
-<a class="donate" href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20orphan%20children." target="_blank">Donate for Orphans</a>
-</section>
+    <p id="firebaseStatus">Connecting to donation records...</p>
 
-<section class="card">
-<h2>Poor Families Fund</h2>
-<p>Target: <strong>$1,000</strong></p>
-<div class="progress"><div class="bar" id="poorBar"></div></div>
-<div class="percent" id="poorPercent">0%</div>
-<p id="poorCollected">Collected: $0</p>
-<a class="donate" href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20poor%20families." target="_blank">Donate for Poor Families</a>
-</section>
+    <div class="category">
+      <h3>Orphan Children</h3>
+      <div class="target">Target: $850</div>
+      <div class="progress-track">
+        <div class="progress-bar" id="orphanBar"></div>
+      </div>
+      <div class="progress-info">
+        <span id="orphanCollected" class="amount">Collected: $0</span>
+        <span id="orphanPercent">0%</span>
+      </div>
+    </div>
 
-<section class="card">
-<h2>Persons with Disabilities Fund</h2>
-<p>Target: <strong>$750</strong></p>
-<div class="progress"><div class="bar" id="disabledBar"></div></div>
-<div class="percent" id="disabledPercent">0%</div>
-<p id="disabledCollected">Collected: $0</p>
-<a class="donate" href="https://wa.me/923352253097?text=I%20want%20to%20donate%20for%20persons%20with%20disabilities." target="_blank">Donate for Disabled</a>
-</section>
+    <div class="category">
+      <h3>Poor Families</h3>
+      <div class="target">Target: $1,000</div>
+      <div class="progress-track">
+        <div class="progress-bar" id="poorBar"></div>
+      </div>
+      <div class="progress-info">
+        <span id="poorCollected" class="amount">Collected: $0</span>
+        <span id="poorPercent">0%</span>
+      </div>
+    </div>
 
-<section class="card">
-<h2>Bank Donation Details</h2>
-<p><strong>Bank:</strong> Meezan Bank</p>
-<p><strong>Account Title:</strong> Habib Ullah</p>
-<p><strong>IBAN:</strong></p>
-<p id="iban">PK61MEZN0090010107506561</p>
-<button class="copy" onclick="copyText('iban')">Copy IBAN</button>
-</section>
+    <div class="category">
+      <h3>Persons with Disabilities</h3>
+      <div class="target">Target: $750</div>
+      <div class="progress-track">
+        <div class="progress-bar" id="disabledBar"></div>
+      </div>
+      <div class="progress-info">
+        <span id="disabledCollected" class="amount">Collected: $0</span>
+        <span id="disabledPercent">0%</span>
+      </div>
+    </div>
+  </section>
 
-<section class="card">
-<h2>USDT Donation (TRC20)</h2>
-<p><strong>Wallet Address:</strong></p>
-<p id="wallet">TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF</p>
-<button class="copy" onclick="copyText('wallet')">Copy USDT Address</button>
-<p><strong>Network:</strong> TRON (TRC20)</p>
-<p>Please confirm the network before sending USDT.</p>
-</section>
 
-<section class="card notice">
-<h2>Important Transparency Notice</h2>
-<p>King Welfare Foundation is currently an unregistered welfare initiative. It is not a government organization or registered charity at present.</p>
-<p>Donations are currently received through the founder's personal account, not an official foundation bank account.</p>
-<p>Donation records and spending updates will be shared transparently, while respecting beneficiaries' dignity and permission.</p>
-</section>
+  <section class="card">
+    <h2>Bank Donation</h2>
 
-<section class="card contact">
-<h2>Contact Us</h2>
-<p><strong>Founder:</strong> Habib Ullah</p>
-<p><strong>WhatsApp:</strong> <a href="https://wa.me/923352253097">03352253097</a></p>
-<p><strong>Email:</strong> <a href="mailto:kingwelfarefoundation@gmail.com">kingwelfarefoundation@gmail.com</a></p>
-<p><strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">Follow Our Updates</a></p>
-</section>
+    <p><strong>Bank:</strong> Meezan Bank</p>
+    <p><strong>Account Title:</strong> Habib Ullah</p>
 
-<section class="card">
-<h2>Donation Progress Status</h2>
-<p class="status" id="firebaseStatus">Connecting to Firebase...</p>
-</section>
+    <p><strong>IBAN:</strong></p>
+    <div class="copy-row" id="bankIban">
+      PK61MEZN0090010107506561
+    </div>
+
+    <button onclick="copyText('bankIban')">
+      Copy IBAN
+    </button>
+  </section>
+
+
+  <section class="card">
+    <h2>USDT Donation (TRC20)</h2>
+
+    <p><strong>Network:</strong> TRON (TRC20)</p>
+
+    <p><strong>Wallet Address:</strong></p>
+
+    <div class="copy-row" id="usdtAddress">
+      TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF
+    </div>
+
+    <button onclick="copyText('usdtAddress')">
+      Copy USDT Address
+    </button>
+
+    <div id="qrCode"></div>
+
+    <p class="info">
+      Please select the TRC20 network when sending USDT.
+      Always check the wallet address and network before sending.
+    </p>
+  </section>
+
+
+  <section class="card">
+    <h2>Important Transparency Notice</h2>
+
+    <p>
+      King Welfare Foundation is currently an unregistered welfare initiative.
+      It is not a government organization and does not yet have an official
+      foundation bank account.
+    </p>
+
+    <p>
+      The bank account and wallet details displayed here are provided by
+      the founder, Habib Ullah, for receiving donations at this stage.
+    </p>
+
+    <p>
+      Donation records and updates will be shared transparently.
+      Donors can contact us to confirm donation details.
+    </p>
+  </section>
+
+
+  <section class="card">
+    <h2>Contact Us</h2>
+
+    <p><strong>Founder:</strong> Habib Ullah</p>
+
+    <p>
+      <strong>WhatsApp:</strong>
+      <a href="https://wa.me/923352253097">03352253097</a>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <a href="mailto:kingwelfarefoundation@gmail.com">
+        kingwelfarefoundation@gmail.com
+      </a>
+    </p>
+
+    <p>
+      <strong>WhatsApp Channel:</strong>
+      <a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">
+        Follow Foundation Updates
+      </a>
+    </p>
+
+    <a class="whatsapp"
+       href="https://wa.me/923352253097?text=Assalamualaikum%2C%20I%20want%20to%20donate%20to%20King%20Welfare%20Foundation."
+       target="_blank">
+      Contact on WhatsApp
+    </a>
+  </section>
 
 </main>
 
 <footer>
-<p>King Welfare Foundation</p>
-<p>Humanity First — Serving Humanity Is Our Mission</p>
-<p>© 2026 King Welfare Foundation</p>
+  <p>King Welfare Foundation</p>
+  <p>Humanity First — Serving Humanity Is Our Mission</p>
+  <p>Loralai, Balochistan, Pakistan</p>
 </footer>
 
+
+<!-- COPY FUNCTION -->
 <script>
-function copyText(id){
-  const value=document.getElementById(id).textContent.trim();
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(value)
-      .then(()=>alert("Copied successfully!"))
-      .catch(()=>alert("Please copy manually: "+value));
-  }else{
-    alert("Please copy manually: "+value);
+function copyText(elementId) {
+  const text = document.getElementById(elementId).textContent.trim();
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(() => alert("Copied successfully!"))
+      .catch(() => alert("Please copy the address manually."));
+  } else {
+    alert("Please copy the address manually: " + text);
   }
 }
 </script>
 
-<!-- FIREBASE CONNECTION -->
+
+<!-- USDT QR CODE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+if (window.QRCode) {
+  new QRCode(document.getElementById("qrCode"), {
+    text: "TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF",
+    width: 180,
+    height: 180
+  });
+}
+</script>
+
+
+<!-- FIREBASE DONATION PROGRESS -->
 <script type="module">
 
-import { initializeApp, getApps, getApp }
+import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 
-import { getFirestore, doc, onSnapshot }
+import {
+  getFirestore,
+  doc,
+  onSnapshot
+}
 from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-const status=document.getElementById("firebaseStatus");
 
-const firebaseConfig={
-  apiKey:"AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
-  authDomain:"kingwellfairfoundation2-e68bd.firebaseapp.com",
-  projectId:"kingwellfairfoundation2-e68bd",
-  storageBucket:"kingwellfairfoundation2-e68bd.firebasestorage.app",
-  messagingSenderId:"492190272172",
-  appId:"1:492190272172:web:7cbe0090b0efec05b92d09",
-  measurementId:"G-SJP0K2HDGW"
+/* FIREBASE CONFIGURATION */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
+  authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
+  projectId: "kingwellfairfoundation2-e68bd",
+  storageBucket: "kingwellfairfoundation2-e68bd.firebasestorage.app",
+  messagingSenderId: "492190272172",
+  appId: "1:492190272172:web:7cbe0090b0efec05b92d09",
+  measurementId: "G-SJP0K2HDGW"
 };
 
-const targets={
-  orphans:850,
-  poor:1000,
-  disabled:750
-};
 
-const elements={
-  orphans:{bar:"orphanBar",percent:"orphanPercent",collected:"orphanCollected"},
-  poor:{bar:"poorBar",percent:"poorPercent",collected:"poorCollected"},
-  disabled:{bar:"disabledBar",percent:"disabledPercent",collected:"disabledCollected"}
-};
+/* CONNECT FIREBASE */
 
-function showError(message){
-  status.textContent=message;
-  console.error(message);
-}
+const statusElement = document.getElementById("firebaseStatus");
 
-try{
+try {
 
-  status.textContent="Connecting to Firebase...";
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-  const app=getApps().length ? getApp() : initializeApp(firebaseConfig);
-  const db=getFirestore(app);
+
+  /* CATEGORY TARGETS */
+
+  const targets = {
+    orphans: 850,
+    poor: 1000,
+    disabled: 750
+  };
+
+
+  /* HTML ELEMENT IDS */
+
+  const elements = {
+    orphans: {
+      bar: "orphanBar",
+      percent: "orphanPercent",
+      amount: "orphanCollected"
+    },
+
+    poor: {
+      bar: "poorBar",
+      percent: "poorPercent",
+      amount: "poorCollected"
+    },
+
+    disabled: {
+      bar: "disabledBar",
+      percent: "disabledPercent",
+      amount: "disabledCollected"
+    }
+  };
+
+
+  /* READ FIRESTORE DOCUMENT */
 
   onSnapshot(
-    doc(db,"settings","donationProgress"),
+    doc(db, "settings", "donationProgress"),
 
-    (snapshot)=>{
+    snapshot => {
 
-      if(!snapshot.exists()){
-        showError("ERROR: settings/donationProgress document not found.");
+      if (!snapshot.exists()) {
+        statusElement.textContent =
+          "Donation record is not available yet.";
         return;
       }
 
-      const data=snapshot.data();
+      const data = snapshot.data();
 
-      Object.keys(targets).forEach((category)=>{
+      Object.keys(targets).forEach(category => {
 
-        const collected=Math.max(0,Number(data[category]||0));
-        const percentage=Math.min(100,Math.round(collected/targets[category]*100));
-        const ids=elements[category];
+        const rawAmount = Number(data[category] || 0);
 
-        document.getElementById(ids.bar).style.width=percentage+"%";
-        document.getElementById(ids.percent).textContent=percentage+"%";
-        document.getElementById(ids.collected).textContent=
-          "Collected: $"+collected.toLocaleString("en-US");
+        const collected = Number.isFinite(rawAmount)
+          ? Math.max(0, rawAmount)
+          : 0;
+
+        const percentage = Math.min(
+          100,
+          Math.round((collected / targets[category]) * 100)
+        );
+
+        const ids = elements[category];
+
+        const bar = document.getElementById(ids.bar);
+        const percent = document.getElementById(ids.percent);
+        const amount = document.getElementById(ids.amount);
+
+        if (bar) {
+          bar.style.width = percentage + "%";
+        }
+
+        if (percent) {
+          percent.textContent = percentage + "%";
+        }
+
+        if (amount) {
+          amount.textContent =
+            "Collected: $" +
+            collected.toLocaleString("en-US");
+        }
 
       });
 
-      status.textContent="Donation progress connected successfully.";
+      statusElement.textContent =
+        "Donation progress connected successfully.";
 
     },
 
-    (error)=>{
-      showError("FIRESTORE ERROR: "+(error.code||"unknown")+" - "+(error.message||String(error)));
+    error => {
+
+      console.error("Donation Firebase Error:", error);
+
+      statusElement.textContent =
+        "Unable to load donation progress. Please try again later.";
+
     }
   );
 
-}catch(error){
+} catch (error) {
 
-  showError("FIREBASE SETUP ERROR: "+(error.code||"unknown")+" - "+(error.message||String(error)));
+  console.error("Firebase Setup Error:", error);
+
+  statusElement.textContent =
+    "Firebase connection could not start. Please check the configuration.";
 
 }
 
 </script>
+
 </body>
 </html>
