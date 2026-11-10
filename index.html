@@ -562,6 +562,66 @@ function renderPosts(snapshot) {
       return dateB - dateA;
     });
 
+
+if (publishedPosts.length === 0) {
+  const empty = document.createElement("div");
+  empty.className = "status";
+  empty.textContent = "No foundation updates published yet.";
+  postsContainer.appendChild(empty);
+  return;
+}
+
+publishedPosts.forEach(post => {
+  const article = document.createElement("article");
+  article.className = "post";
+
+  const heading = document.createElement("h3");
+  heading.textContent = post.title || "Foundation Update";
+
+  const paragraph = document.createElement("p");
+  paragraph.textContent = post.content || "";
+
+  article.appendChild(heading);
+  article.appendChild(paragraph);
+
+  if (post.createdAt?.toDate) {
+    const date = document.createElement("small");
+    date.textContent = post.createdAt.toDate().toLocaleDateString();
+    article.appendChild(date);
+  }
+
+  postsContainer.appendChild(article);
+});
+
+// LIVE FIRESTORE UPDATES
+onSnapshot(
+  collection(db, "posts"),
+  snapshot => {
+    renderPosts(snapshot);
+    showMessage("Foundation updates are live.");
+  },
+  error => {
+    console.error("Firestore error:", error);
+
+    if (postsContainer) {
+      postsContainer.innerHTML = "";
+      const message = document.createElement("div");
+      message.className = "status";
+      message.textContent =
+        "Unable to load updates. Please try again later.";
+      postsContainer.appendChild(message);
+    }
+
+    showMessage("Updates connection failed.");
+  }
+);
+
+// FOOTER YEAR
+const yearElement = document.getElementById("year");
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+  
 </script>
 </body>
 </html>
