@@ -3,7 +3,7 @@
 
 <script type="module">
 
-import { initializeApp }
+import { initializeApp, getApps, getApp }
 from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 
 import { getFirestore, doc, onSnapshot }
@@ -11,44 +11,47 @@ from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 const status = document.getElementById("firebaseStatus");
 
+const firebaseConfig = {
+  apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
+  authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
+  projectId: "kingwellfairfoundation2-e68bd",
+  storageBucket: "kingwellfairfoundation2-e68bd.firebasestorage.app",
+  messagingSenderId: "492190272172",
+  appId: "1:492190272172:web:7cbe0090b0efec05b92d09",
+  measurementId: "G-SJP0K2HDGW"
+};
+
+const targets = {
+  orphans: 850,
+  poor: 1000,
+  disabled: 750
+};
+
+const elements = {
+  orphans: {
+    bar: "orphanBar",
+    percent: "orphanPercent",
+    collected: "orphanCollected"
+  },
+  poor: {
+    bar: "poorBar",
+    percent: "poorPercent",
+    collected: "poorCollected"
+  },
+  disabled: {
+    bar: "disabledBar",
+    percent: "disabledPercent",
+    collected: "disabledCollected"
+  }
+};
+
 try {
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyATbTZW9xVdos4JxMIWpgcfMnVowCb3U34",
-    authDomain: "kingwellfairfoundation2-e68bd.firebaseapp.com",
-    projectId: "kingwellfairfoundation2-e68bd",
-    storageBucket: "kingwellfairfoundation2-e68bd.firebasestorage.app",
-    messagingSenderId: "492190272172",
-    appId: "1:492190272172:web:7cbe0090b0efec05b92d09",
-    measurementId: "G-SJP0K2HDGW"
-  };
+  const app = getApps().length
+    ? getApp()
+    : initializeApp(firebaseConfig);
 
-  const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-
-  const targets = {
-    orphans: 850,
-    poor: 1000,
-    disabled: 750
-  };
-
-  const elements = {
-    orphans: {
-      bar: "orphanBar",
-      percent: "orphanPercent",
-      collected: "orphanCollected"
-    },
-    poor: {
-      bar: "poorBar",
-      percent: "poorPercent",
-      collected: "poorCollected"
-    },
-    disabled: {
-      bar: "disabledBar",
-      percent: "disabledPercent",
-      collected: "disabledCollected"
-    }
-  };
 
   status.textContent = "Connecting to Firebase...";
 
@@ -59,7 +62,7 @@ try {
 
       if (!snapshot.exists()) {
         status.textContent =
-          "ERROR: Donation progress document not found.";
+          "ERROR: Document settings/donationProgress not found.";
         return;
       }
 
@@ -74,9 +77,7 @@ try {
 
         const percentage = Math.min(
           100,
-          Math.round(
-            (collected / targets[category]) * 100
-          )
+          Math.round(collected / targets[category] * 100)
         );
 
         const ids = elements[category];
@@ -88,8 +89,7 @@ try {
           percentage + "%";
 
         document.getElementById(ids.collected).textContent =
-          "Collected: $" +
-          collected.toLocaleString("en-US");
+          "Collected: $" + collected.toLocaleString("en-US");
       });
 
       status.textContent =
@@ -97,22 +97,23 @@ try {
     },
 
     (error) => {
-
-      console.error("Firebase error:", error);
+      console.error("Firestore error:", error);
 
       status.textContent =
-        "Firebase Error: " +
-        (error.code || error.message || "Unknown error");
+        "FIRESTORE ERROR: " +
+        (error.code || "") + " " +
+        (error.message || String(error));
     }
   );
 
 } catch (error) {
 
-  console.error("Firebase setup error:", error);
+  console.error("Firebase initialization error:", error);
 
   status.textContent =
-    "Firebase Setup Error: " +
-    (error.code || error.message || "Unknown error");
+    "FIREBASE SETUP ERROR: " +
+    (error.code || "") + " " +
+    (error.message || String(error));
 }
 
 </script>
