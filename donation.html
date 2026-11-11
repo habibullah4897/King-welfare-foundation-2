@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +7,7 @@
 <title>Donate - King Welfare Foundation</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -20,21 +17,14 @@ body {
   line-height: 1.6;
 }
 
-header {
+header, footer {
   background: #123b65;
   color: white;
   text-align: center;
-  padding: 28px 15px;
+  padding: 25px 15px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 28px;
-}
-
-header p {
-  margin: 8px 0 0;
-}
+header h1 { margin: 0; font-size: 28px; }
 
 .container {
   width: 92%;
@@ -50,20 +40,13 @@ header p {
   box-shadow: 0 3px 12px rgba(0,0,0,.07);
 }
 
-h2 {
-  color: #123b65;
-  margin-top: 0;
-}
+h2 { color: #123b65; margin-top: 0; }
 
-.category {
-  margin: 22px 0;
-}
+.category { margin: 25px 0; }
 
-.category h3 {
-  margin-bottom: 5px;
-}
+.category h3 { margin-bottom: 5px; }
 
-.target {
+.target, .beneficiaries {
   color: #58677a;
   font-size: 14px;
 }
@@ -80,7 +63,6 @@ h2 {
   width: 0%;
   height: 100%;
   background: #16865b;
-  border-radius: 20px;
   transition: width .5s ease;
 }
 
@@ -92,9 +74,9 @@ h2 {
   font-weight: bold;
 }
 
-.amount {
-  color: #16865b;
-}
+.amount { color: #16865b; }
+
+.beneficiaries { margin-top: 7px; }
 
 .info {
   background: #fff8e8;
@@ -125,9 +107,7 @@ button, .whatsapp {
   margin-top: 5px;
 }
 
-.whatsapp {
-  background: #16865b;
-}
+.whatsapp { background: #16865b; }
 
 #firebaseStatus {
   font-size: 14px;
@@ -136,38 +116,16 @@ button, .whatsapp {
   border-radius: 7px;
 }
 
-#qrCode {
-  margin: 15px 0;
-}
+#qrCode { margin: 15px 0; }
+#qrCode img, #qrCode canvas { max-width: 190px; }
 
-#qrCode img, #qrCode canvas {
-  max-width: 190px;
-}
-
-footer {
-  background: #123b65;
-  color: white;
-  text-align: center;
-  padding: 20px 12px;
-  font-size: 14px;
-}
-
-footer a {
-  color: white;
-}
+footer { font-size: 14px; }
+footer a { color: white; }
 
 @media(max-width: 500px) {
-  header h1 {
-    font-size: 23px;
-  }
-
-  .card {
-    padding: 17px;
-  }
-
-  .progress-info {
-    font-size: 12px;
-  }
+  header h1 { font-size: 23px; }
+  .card { padding: 17px; }
+  .progress-info { font-size: 12px; }
 }
 </style>
 </head>
@@ -182,142 +140,157 @@ footer a {
 
 <main class="container">
 
-  <section class="card">
-    <h2>Donation Progress</h2>
-    <p>Help us support deserving people. Our donation progress is updated from Firebase.</p>
+<section class="card">
+  <h2>Donation Progress</h2>
 
-    <p id="firebaseStatus">Connecting to donation records...</p>
+  <p>Help us support deserving people. Our donation progress is updated from Firebase.</p>
 
-    <div class="category">
-      <h3>Orphan Children</h3>
-      <div class="target">Target: $850</div>
-      <div class="progress-track">
-        <div class="progress-bar" id="orphanBar"></div>
-      </div>
-      <div class="progress-info">
-        <span id="orphanCollected" class="amount">Collected: $0</span>
-        <span id="orphanPercent">0%</span>
-      </div>
+  <p id="firebaseStatus">Connecting to donation records...</p>
+
+  <div class="category">
+    <h3>Orphan Children</h3>
+    <div class="target">Donation Target: $850</div>
+
+    <div class="progress-track">
+      <div class="progress-bar" id="orphanBar"></div>
     </div>
 
-    <div class="category">
-      <h3>Poor Families</h3>
-      <div class="target">Target: $1,000</div>
-      <div class="progress-track">
-        <div class="progress-bar" id="poorBar"></div>
-      </div>
-      <div class="progress-info">
-        <span id="poorCollected" class="amount">Collected: $0</span>
-        <span id="poorPercent">0%</span>
-      </div>
+    <div class="progress-info">
+      <span id="orphanCollected" class="amount">Collected: $0</span>
+      <span id="orphanPercent">0%</span>
     </div>
 
-    <div class="category">
-      <h3>Persons with Disabilities</h3>
-      <div class="target">Target: $750</div>
-      <div class="progress-track">
-        <div class="progress-bar" id="disabledBar"></div>
-      </div>
-      <div class="progress-info">
-        <span id="disabledCollected" class="amount">Collected: $0</span>
-        <span id="disabledPercent">0%</span>
-      </div>
-    </div>
-  </section>
+    <p class="beneficiaries" id="orphanCount">
+      Beneficiaries: 0
+    </p>
+  </div>
 
+  <div class="category">
+    <h3>Poor Families</h3>
+    <div class="target">Donation Target: $1,000</div>
 
-  <section class="card">
-    <h2>Bank Donation</h2>
-
-    <p><strong>Bank:</strong> Meezan Bank</p>
-    <p><strong>Account Title:</strong> Habib Ullah</p>
-
-    <p><strong>IBAN:</strong></p>
-    <div class="copy-row" id="bankIban">
-      PK61MEZN0090010107506561
+    <div class="progress-track">
+      <div class="progress-bar" id="poorBar"></div>
     </div>
 
-    <button onclick="copyText('bankIban')">
-      Copy IBAN
-    </button>
-  </section>
-
-
-  <section class="card">
-    <h2>USDT Donation (TRC20)</h2>
-
-    <p><strong>Network:</strong> TRON (TRC20)</p>
-
-    <p><strong>Wallet Address:</strong></p>
-
-    <div class="copy-row" id="usdtAddress">
-      TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF
+    <div class="progress-info">
+      <span id="poorCollected" class="amount">Collected: $0</span>
+      <span id="poorPercent">0%</span>
     </div>
 
-    <button onclick="copyText('usdtAddress')">
-      Copy USDT Address
-    </button>
-
-    <div id="qrCode"></div>
-
-    <p class="info">
-      Please select the TRC20 network when sending USDT.
-      Always check the wallet address and network before sending.
+    <p class="beneficiaries" id="poorCount">
+      Beneficiaries: 0
     </p>
-  </section>
+  </div>
 
+  <div class="category">
+    <h3>Persons with Disabilities</h3>
+    <div class="target">Donation Target: $750</div>
 
-  <section class="card">
-    <h2>Important Transparency Notice</h2>
+    <div class="progress-track">
+      <div class="progress-bar" id="disabledBar"></div>
+    </div>
 
-    <p>
-      King Welfare Foundation is currently an unregistered welfare initiative.
-      It is not a government organization and does not yet have an official
-      foundation bank account.
+    <div class="progress-info">
+      <span id="disabledCollected" class="amount">Collected: $0</span>
+      <span id="disabledPercent">0%</span>
+    </div>
+
+    <p class="beneficiaries" id="disabledCount">
+      Beneficiaries: 0
     </p>
+  </div>
+</section>
 
-    <p>
-      The bank account and wallet details displayed here are provided by
-      the founder, Habib Ullah, for receiving donations at this stage.
-    </p>
+<section class="card">
+  <h2>Bank Donation</h2>
 
-    <p>
-      Donation records and updates will be shared transparently.
-      Donors can contact us to confirm donation details.
-    </p>
-  </section>
+  <p><strong>Bank:</strong> Meezan Bank</p>
+  <p><strong>Account Title:</strong> Habib Ullah</p>
 
+  <p><strong>IBAN:</strong></p>
+  <div class="copy-row" id="bankIban">
+    PK61MEZN0090010107506561
+  </div>
 
-  <section class="card">
-    <h2>Contact Us</h2>
+  <button onclick="copyText('bankIban')">
+    Copy IBAN
+  </button>
+</section>
 
-    <p><strong>Founder:</strong> Habib Ullah</p>
+<section class="card">
+  <h2>USDT Donation (TRC20)</h2>
 
-    <p>
-      <strong>WhatsApp:</strong>
-      <a href="https://wa.me/923352253097">03352253097</a>
-    </p>
+  <p><strong>Network:</strong> TRON (TRC20)</p>
+  <p><strong>Wallet Address:</strong></p>
 
-    <p>
-      <strong>Email:</strong>
-      <a href="mailto:kingwelfarefoundation@gmail.com">
-        kingwelfarefoundation@gmail.com
-      </a>
-    </p>
+  <div class="copy-row" id="usdtAddress">
+    TPrJz3PpWf9qMJz9QhxpWsPcyhQNfkfrFF
+  </div>
 
-    <p>
-      <strong>WhatsApp Channel:</strong>
-      <a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G" target="_blank">
-        Follow Foundation Updates
-      </a>
-    </p>
+  <button onclick="copyText('usdtAddress')">
+    Copy USDT Address
+  </button>
 
-    <a class="whatsapp"
-       href="https://wa.me/923352253097?text=Assalamualaikum%2C%20I%20want%20to%20donate%20to%20King%20Welfare%20Foundation."
-       target="_blank">
-      Contact on WhatsApp
+  <div id="qrCode"></div>
+
+  <p class="info">
+    Please select the TRC20 network when sending USDT.
+    Always check the wallet address and network before sending.
+  </p>
+</section>
+
+<section class="card">
+  <h2>Important Transparency Notice</h2>
+
+  <p>
+    King Welfare Foundation is currently an unregistered welfare initiative.
+    It is not a government organization and does not yet have an official
+    foundation bank account.
+  </p>
+
+  <p>
+    The bank account and wallet details displayed here are provided by
+    the founder, Habib Ullah, for receiving donations at this stage.
+  </p>
+
+  <p>
+    Donation records and updates will be shared transparently.
+    Donors can contact us to confirm donation details.
+  </p>
+</section>
+
+<section class="card">
+  <h2>Contact Us</h2>
+
+  <p><strong>Founder:</strong> Habib Ullah</p>
+
+  <p>
+    <strong>WhatsApp:</strong>
+    <a href="https://wa.me/923352253097">03352253097</a>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <a href="mailto:kingwelfarefoundation@gmail.com">
+      kingwelfarefoundation@gmail.com
     </a>
-  </section>
+  </p>
+
+  <p>
+    <strong>WhatsApp Channel:</strong>
+    <a href="https://whatsapp.com/channel/0029VbEBZaMHQbRx4SESJf0G"
+       target="_blank" rel="noopener">
+      Follow Foundation Updates
+    </a>
+  </p>
+
+  <a class="whatsapp"
+     href="https://wa.me/923352253097?text=Assalamualaikum%2C%20I%20want%20to%20donate%20to%20King%20Welfare%20Foundation."
+     target="_blank" rel="noopener">
+    Contact on WhatsApp
+  </a>
+</section>
 
 </main>
 
@@ -327,7 +300,6 @@ footer a {
   <p>Loralai, Balochistan, Pakistan</p>
 </footer>
 
-
 <!-- COPY FUNCTION -->
 <script>
 function copyText(elementId) {
@@ -336,13 +308,12 @@ function copyText(elementId) {
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text)
       .then(() => alert("Copied successfully!"))
-      .catch(() => alert("Please copy the address manually."));
+      .catch(() => alert("Please copy manually: " + text));
   } else {
-    alert("Please copy the address manually: " + text);
+    alert("Please copy manually: " + text);
   }
 }
 </script>
-
 
 <!-- USDT QR CODE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -357,7 +328,6 @@ if (window.QRCode) {
 }
 </script>
 
-
 <!-- FIREBASE DONATION PROGRESS -->
 <script type="module">
 
@@ -371,7 +341,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-
 /* FIREBASE CONFIGURATION */
 
 const firebaseConfig = {
@@ -384,7 +353,6 @@ const firebaseConfig = {
   measurementId: "G-SJP0K2HDGW"
 };
 
-
 /* CONNECT FIREBASE */
 
 const statusElement = document.getElementById("firebaseStatus");
@@ -394,8 +362,7 @@ try {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-
-  /* CATEGORY TARGETS */
+  /* DONATION TARGETS */
 
   const targets = {
     orphans: 850,
@@ -403,91 +370,122 @@ try {
     disabled: 750
   };
 
+  /* CONVERT STRING OR NUMBER SAFELY */
 
-  /* HTML ELEMENT IDS */
+  function readNumber(value) {
+    if (value === null || value === undefined || value === "") {
+      return 0;
+    }
 
-  const elements = {
+    const number = Number(String(value).trim());
+
+    return Number.isFinite(number) && number >= 0
+      ? number
+      : 0;
+  }
+
+  /* UPDATE DONATION CATEGORY */
+
+  function updateCategory(category, countField, ids) {
+
+    const collected = readNumber(currentData[category]);
+
+    const beneficiaryCount = readNumber(currentData[countField]);
+
+    const percentage = Math.min(
+      100,
+      Math.round((collected / targets[category]) * 100)
+    );
+
+    document.getElementById(ids.bar).style.width =
+      percentage + "%";
+
+    document.getElementById(ids.percent).textContent =
+      percentage + "%";
+
+    document.getElementById(ids.amount).textContent =
+      "Collected: $" + collected.toLocaleString("en-US");
+
+    document.getElementById(ids.count).textContent =
+      "Beneficiaries: " +
+      beneficiaryCount.toLocaleString("en-US");
+  }
+
+  const categoryIds = {
     orphans: {
       bar: "orphanBar",
       percent: "orphanPercent",
-      amount: "orphanCollected"
+      amount: "orphanCollected",
+      count: "orphanCount"
     },
 
     poor: {
       bar: "poorBar",
       percent: "poorPercent",
-      amount: "poorCollected"
+      amount: "poorCollected",
+      count: "poorCount"
     },
 
     disabled: {
       bar: "disabledBar",
       percent: "disabledPercent",
-      amount: "disabledCollected"
+      amount: "disabledCollected",
+      count: "disabledCount"
     }
   };
 
+  let currentData = {};
 
-  /* READ FIRESTORE DOCUMENT */
+  /*
+    IMPORTANT:
+    Correct Firestore path:
+    Collection = donationProgress
+    Document ID = progress
+  */
+
+  const progressRef = doc(
+    db,
+    "donationProgress",
+    "progress"
+  );
 
   onSnapshot(
-    doc(db, "settings", "donationProgress"),
+    progressRef,
 
     snapshot => {
 
       if (!snapshot.exists()) {
         statusElement.textContent =
-          "Donation record is not available yet.";
+          "Donation record not found. Please check Firestore.";
+
         return;
       }
 
-      const data = snapshot.data();
+      currentData = snapshot.data();
 
       Object.keys(targets).forEach(category => {
 
-        const rawAmount = Number(data[category] || 0);
+        const countField = category + "Count";
 
-        const collected = Number.isFinite(rawAmount)
-          ? Math.max(0, rawAmount)
-          : 0;
-
-        const percentage = Math.min(
-          100,
-          Math.round((collected / targets[category]) * 100)
+        updateCategory(
+          category,
+          countField,
+          categoryIds[category]
         );
-
-        const ids = elements[category];
-
-        const bar = document.getElementById(ids.bar);
-        const percent = document.getElementById(ids.percent);
-        const amount = document.getElementById(ids.amount);
-
-        if (bar) {
-          bar.style.width = percentage + "%";
-        }
-
-        if (percent) {
-          percent.textContent = percentage + "%";
-        }
-
-        if (amount) {
-          amount.textContent =
-            "Collected: $" +
-            collected.toLocaleString("en-US");
-        }
 
       });
 
       statusElement.textContent =
-        "Donation progress connected successfully.";
+        "Donation progress connected successfully. Live updates are active.";
 
     },
 
     error => {
 
-      console.error("Donation Firebase Error:", error);
+      console.error("Firebase Error:", error);
 
       statusElement.textContent =
-        "Unable to load donation progress. Please try again later.";
+        "Firebase error: " + error.message;
 
     }
   );
@@ -497,7 +495,7 @@ try {
   console.error("Firebase Setup Error:", error);
 
   statusElement.textContent =
-    "Firebase connection could not start. Please check the configuration.";
+    "Firebase connection failed: " + error.message;
 
 }
 
